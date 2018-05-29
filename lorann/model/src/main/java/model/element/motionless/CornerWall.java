@@ -1,7 +1,7 @@
-package motionless;
+package model.element.motionless;
 
-import element.Permeability;
-import element.Sprite;
+import model.Permeability;
+import model.Sprite;
 
 public class CornerWall extends MotionlessElement {
 	
