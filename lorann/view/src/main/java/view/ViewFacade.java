@@ -116,28 +116,28 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	}
 
 	/**
-     * Get the Character.
+     * Get the Character
      */
 	public IMobile getMyCharacter() {
 		return myCharacter;
 	}
 
 	/**
-     * Set the Character.
+     * Set the Character
      */
 	public void setMyCharacter(IMobile myCharacter) {
 		this.myCharacter = myCharacter;
 	}
 
 	/**
-     * Get the OrderPerformer.
+     * Get the OrderPerformer
      */
 	private IOrderPerformer getOrderPerformer() {
 		return orderPerformer;
 	}
 
 	/**
-     * Set the OrderPerformer.
+     * Set the OrderPerformer
      */
 	public void setOrderPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
