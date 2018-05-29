@@ -9,7 +9,7 @@ public class OpenedDoor extends MotionlessElement{
     private static final Sprite SPRITE = new Sprite("gate_open.png");
     
 	OpenedDoor() {
-		super(SPRITE, Permeability.PENETRABLE);
+		super(SPRITE, Permeability.DOOR);
 	}
 
 }
