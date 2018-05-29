@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import controller.IOrderPerformer;
 import showboard.BoardFrame;
 
 /**
@@ -80,7 +81,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
 		try {
-            this.getOrderPerformer().performOrder(keyEvent.getKeyCode());
+            this.getOrderPerformer().performOrder(keyEvent);
         } catch (final IOException exception) {
             exception.printStackTrace();
         }
