@@ -29,9 +29,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	/** The order performer. */
 	private IOrderPerformer orderPerformer;
 	
-	/** The view. */
-    private int view;
-	
 	/** The Constant squareSize. */
     private static final int squareSize = 32;
 
@@ -162,20 +159,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	public void setOrderPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
-	}
-	
-	/**
-     * Get the view.
-     */
-    public int getView() {
-		return view;
-	}
-
-    /**
-     * Set the view.
-     */
-	public void setView(int view) {
-		this.view = view;
 	}
 
 	/**
