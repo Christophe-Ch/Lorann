@@ -160,18 +160,3 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	public void setOrderPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
 	}
-
-	/**
-     * Get the full view.
-     */
-	public Rectangle getFullView() {
-		return fullView;
-	}
-
-	/**
-     * Set the full view.
-     */
-	public void setFullView(Rectangle fullView) {
-		this.fullView = fullView;
-	}
-}
