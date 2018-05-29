@@ -2,7 +2,9 @@ package model;
 
 import java.awt.Point;
 
-public interface IMobile extends IElement{
+import showboard.IPawn;
+
+public interface IMobile extends IElement, IPawn{
 	
 	void moveUp();
 	void moveLeft();
