@@ -2,10 +2,7 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
-import model.Example;
 import model.IModel;
 import view.IView;
 
@@ -49,7 +46,7 @@ public class ControllerFacade implements IController, IOrderPerformer {
      * @throws SQLException
      *             the SQL exception
      */
-    public void start() throws SQLException, InterruptedException {
+    public void start() throws InterruptedException {
         while(this.getModel().getMyCharacter().isAlive()) {
         	Thread.sleep(speed);
         	switch(this.getStackOrder().getKeyCode()) {
