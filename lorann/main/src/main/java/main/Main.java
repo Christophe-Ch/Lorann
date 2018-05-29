@@ -19,8 +19,9 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
+     * @throws InterruptedException 
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws InterruptedException {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
