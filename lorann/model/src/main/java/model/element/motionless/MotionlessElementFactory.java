@@ -1,4 +1,4 @@
-package motionless;
+package model.element.motionless;
 
 public abstract class MotionlessElementFactory {
 
