@@ -10,7 +10,12 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controller.IOrderPerformer;
+
 import showboard.BoardFrame;
+
+import model.ILevel;
+import model.IMobile;
+
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
