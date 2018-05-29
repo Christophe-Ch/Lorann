@@ -65,6 +65,9 @@ public class ControllerFacade implements IController, IOrderPerformer {
         		case KeyEvent.VK_DOWN:
         			this.getModel().getMyCharacter().moveDown();
         			break;
+        		case KeyEvent.VK_SPACE:
+        			this.getModel().getMyCharacter().shoot();
+        			break;
         		default:
         			this.getModel().getMyCharacter().doNothing();
         			break;
