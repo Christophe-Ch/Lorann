@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import controller.IOrderPerformer;
 import showboard.BoardFrame;
 
 /**
@@ -25,14 +28,25 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	
 	/** The order performer. */
 	private IOrderPerformer orderPerformer;
+	
+	/** The view. */
+    private int view;
+	
+	/** The Constant squareSize. */
+    private static final int squareSize = 32;
 
-    /**
+    /** The Constant closeView. */
+    private Rectangle fullView;
+    
+
+	/**
      * Instantiates a new view facade.
      */
     public ViewFacade(ILevel level, IMobile myCharacter) {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
         this.getMyCharacter().getSprite().loadImage();
+        this.setFullView(new Rectangle(0, 0, this.getLevel().getWidth(), this.getLevel().getHeight()));
         SwingUtilities.invokeLater(this);
     }
 
@@ -52,7 +66,13 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	@Override
 	public void run() {
 		BoardFrame boardFrame = new BoardFrame("Lorann", false);
-		boardFrame.addKeyListener(this);;
+		boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
+        boardFrame.setDisplayFrame(this.fullView);
+        boardFrame.setSize(this.fullView.width * squareSize, this.fullView.height * squareSize);
+        boardFrame.setHeightLooped(false);
+        boardFrame.addKeyListener(this);
+        boardFrame.setFocusable(false);
+        boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
@@ -62,6 +82,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.addPawn(this.getMyCharacter());
 
         this.getLevel().getObservable().addObserver(boardFrame.getObserver());
+
+        boardFrame.setVisible(true);
 	}
 
 	/*
@@ -80,7 +102,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
 		try {
-            this.getOrderPerformer().performOrder(keyEvent.getKeyCode());
+            this.getOrderPerformer().performOrder(keyEvent);
         } catch (final IOException exception) {
             exception.printStackTrace();
         }
@@ -115,33 +137,58 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	}
 
 	/**
-     * Get the Character.
+     * Get the Character
      */
 	public IMobile getMyCharacter() {
 		return myCharacter;
 	}
 
 	/**
-     * Set the Character.
+     * Set the Character
      */
 	public void setMyCharacter(IMobile myCharacter) {
 		this.myCharacter = myCharacter;
 	}
 
 	/**
-     * Get the OrderPerformer.
+     * Get the OrderPerformer
      */
 	private IOrderPerformer getOrderPerformer() {
 		return orderPerformer;
 	}
 
 	/**
-     * Set the OrderPerformer.
+     * Set the OrderPerformer
      */
 	public void setOrderPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
 	}
 	
-	
+	/**
+     * Get the view.
+     */
+    public int getView() {
+		return view;
+	}
 
+    /**
+     * Set the view.
+     */
+	public void setView(int view) {
+		this.view = view;
+	}
+
+	/**
+     * Get the full view.
+     */
+	public Rectangle getFullView() {
+		return fullView;
+	}
+
+	/**
+     * Set the full view.
+     */
+	public void setFullView(Rectangle fullView) {
+		this.fullView = fullView;
+	}
 }
