@@ -3,28 +3,21 @@ package test;
 import static org.junit.Assert.*;
 
 import java.awt.AWTException;
-import java.awt.Button;
-import java.awt.Component;
-import java.awt.Image;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 import java.io.IOException;
-import java.util.Observable;
-import java.util.logging.Level;
+
+import javax.swing.JOptionPane;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import controller.IOrderPerformer;
-import model.IElement;
 import model.ILevel;
 import model.IMobile;
-import model.Permeability;
-import model.Sprite;
 import view.ViewFacade;
 
 public class ViewFacadeTest {
@@ -44,17 +37,6 @@ public class ViewFacadeTest {
 
 	@After
 	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testDisplayMessage() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyPressed() throws AWTException {
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_RIGHT);
 	}
 
 	@Test
@@ -83,7 +65,9 @@ public class ViewFacadeTest {
 
 	@Test
 	public void testSetOrderPerformer() {
-		fail("Not yet implemented");
+		IOrderPerformer orderPerformer = new ControllerFacadeMock();
+		this.view.setOrderPerformer(orderPerformer);
+		assertEquals(orderPerformer, this.view.getOrderPerformer());
 	}
 
 	@Test

@@ -10,18 +10,6 @@ import model.Sprite;
 public class MobileMock implements IMobile {
 
 	@Override
-	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
 		return null;
@@ -95,6 +83,18 @@ public class MobileMock implements IMobile {
 
 	@Override
 	public Point getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sprite getSprite() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Permeability getPermeability() {
 		// TODO Auto-generated method stub
 		return null;
 	}
