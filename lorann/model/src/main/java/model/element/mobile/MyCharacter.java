@@ -8,14 +8,14 @@ import model.Sprite;
 
 public class MyCharacter extends Mobile{
 	
-	private static Sprite lorann_b = new Sprite();
-	private static Sprite lorann_bl = new Sprite();
-	private static Sprite lorann_br = new Sprite();
-	private static Sprite lorann_l = new Sprite();
-	private static Sprite lorann_r = new Sprite();
-	private static Sprite lorann_u = new Sprite();
-	private static Sprite lorann_ul = new Sprite();
-	private static Sprite lorann_ur = new Sprite();
+	private static Sprite lorann_b = new Sprite(' ', "lorann_b");
+	private static Sprite lorann_bl = new Sprite(' ' ,"lorann_bl");
+	private static Sprite lorann_br = new Sprite(' ' ,"lorann_br");
+	private static Sprite lorann_l = new Sprite(' ' ,"lorann_l");
+	private static Sprite lorann_r = new Sprite(' ' ,"lorann_r");
+	private static Sprite lorann_u = new Sprite(' ' ,"lorann_u");
+	private static Sprite lorann_ul = new Sprite(' ' ,"lorann_ul");
+	private static Sprite lorann_ur = new Sprite(' ' ,"lorann_ur");
 	
 	private static Sprite[] sprites;
 	

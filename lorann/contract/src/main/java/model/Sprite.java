@@ -16,6 +16,9 @@ public class Sprite {
 
     /** The is image loaded. */
     private boolean imageLoaded;
+    
+    /** The console image. */
+    private char consoleImage;
 
     /**
      * Instantiates a new sprite.
@@ -25,7 +28,8 @@ public class Sprite {
      * @param imageName
      *            the image name
      */
-    public Sprite(final String imageName) {
+    public Sprite(final char character, final String imageName) {
+    	this.setConsoleImage(character);
         this.setImageName(imageName);
     }
 
@@ -35,8 +39,8 @@ public class Sprite {
      * @param character
      *            the character
      */
-    public Sprite() {
-        this("noimage.jpg");
+    public Sprite(final char character) {
+        this(character, "noimage.jpg");
     }
 
     /**
@@ -105,4 +109,24 @@ public class Sprite {
     public final void setImageLoaded(final boolean isImageLoaded) {
         this.imageLoaded = isImageLoaded;
     }
+
+    /**
+     * Get the console image.
+     *
+     * @param isImageLoaded
+     *            the new image loaded
+     */
+	public char getConsoleImage() {
+		return this.consoleImage;
+	}
+
+	/**
+     * Sets the console image.
+     *
+     * @param isImageLoaded
+     *            the new image loaded
+     */
+	public void setConsoleImage(char consoleImage) {
+		this.consoleImage = consoleImage;
+	}
 }

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
+import model.dao.LorannDAO;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -22,34 +23,11 @@ public final class ModelFacade implements IModel {
     public ModelFacade(int level) {
         super();
     }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
-     */
+    
     @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }
-
+	public Level chooseLevel(int id) throws SQLException {
+		return LorannDAO.chooseLevel(id);
+	}
 	@Override
 	public ILevel getLevel() {
 		return this.level;
@@ -67,5 +45,7 @@ public final class ModelFacade implements IModel {
 	private void setCharacter(IMobile character) {
 		this.character = character;
 	}
+
+	
 	
 }
