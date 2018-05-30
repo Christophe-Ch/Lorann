@@ -46,7 +46,7 @@ public class ControllerFacade implements IController, IOrderPerformer {
      * @throws SQLException
      *             the SQL exception
      */
-    public void start() throws InterruptedException {
+    public void start() {
         while(this.getModel().getMyCharacter().isAlive()) {
         	Thread.sleep(speed);
         	switch(this.getStackOrder().getKeyCode()) {
