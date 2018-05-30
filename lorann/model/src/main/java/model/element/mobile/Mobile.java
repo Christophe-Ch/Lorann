@@ -1,6 +1,5 @@
 package model.element.mobile;
 
-import java.awt.Image;
 import java.awt.Point;
 
 import model.ILevel;
@@ -8,14 +7,16 @@ import model.IMobile;
 import model.Permeability;
 import model.Sprite;
 import model.element.Element;
-import showboard.IBoard;
+import model.element.mobile.auto.Spell;
 
 public abstract class Mobile extends Element implements IMobile {
 	
 	private Point position;
 	private boolean alive = true;
 	private ILevel level;
-	private IBoard board;
+	
+	private int lastX = 0;
+	private int lastY = 0;
 
 	public Mobile(Sprite sprite, Permeability permeability, ILevel level) {
 		this(sprite, permeability, level, 0, 0);
@@ -32,21 +33,29 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public void moveUp() {
 		this.setY(this.getY() - 1);
+		this.lastY = -1;
+		this.lastX = 0;
 	}
 
 	@Override
 	public void moveLeft() {
 		this.setX(this.getX() - 1);
+		this.lastX = -1;
+		this.lastY = 0;
 	}
 
 	@Override
 	public void moveDown() {
 		this.setY(this.getY() + 1);
+		this.lastY = 1;
+		this.lastX = 0;
 	}
 
 	@Override
 	public void moveRight() {
 		this.setX(this.getX() + 1);
+		this.lastX = 1;
+		this.lastY = 0;
 	}
 	
 	public void setHasMoved() {
@@ -99,12 +108,16 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public Point getPosition() {
-		return null;
+		return this.position;
 	}
 
 	@Override
 	public void shoot() {
-		this.level.
+		this.level.setSpellOnTheLevelXY(this.getX() - this.lastX, this.getY() - this.lastY, new Spell());
+	}
+	
+	protected void die() {
+		this.alive = false;
 	}
 
 }
