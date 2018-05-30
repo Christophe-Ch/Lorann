@@ -41,4 +41,8 @@ public interface IModel {
      *             the SQL exception
      */
     List<Example> getAllExamples() throws SQLException;
+    
+    ILevel getLevel();
+    
+    IMobile getMyCharacter();
 }
