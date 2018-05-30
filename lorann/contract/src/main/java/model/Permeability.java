@@ -8,5 +8,7 @@ public enum Permeability {
 	
 	COLLECTIBLE,
 	
-	DOOR
+	DOOR,
+	
+	MONSTER
 }
