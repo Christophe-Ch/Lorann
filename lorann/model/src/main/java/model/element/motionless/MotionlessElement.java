@@ -1,8 +1,8 @@
 package model.element.motionless;
 
-import model.element.Element;
 import model.Permeability;
 import model.Sprite;
+import model.element.Element;
 
 abstract class MotionlessElement extends Element {
 
