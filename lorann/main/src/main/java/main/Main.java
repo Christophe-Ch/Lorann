@@ -23,7 +23,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws InterruptedException {
     	final ModelFacade model = new ModelFacade();
-    	final ViewFacade view = new ViewFacade(level, myCharacter);
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter());
         final ControllerFacade controller = new ControllerFacade(view, model);
 
         try {
