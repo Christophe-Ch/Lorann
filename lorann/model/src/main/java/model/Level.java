@@ -1,6 +1,9 @@
 package model;
 
+import java.sql.SQLException;
 import java.util.Observable;
+
+import model.dao.LorannDAO;
 
 public class Level extends Observable implements ILevel {
 	
@@ -46,7 +49,7 @@ public class Level extends Observable implements ILevel {
 
 	}
 	
-	private void loadLevel(int level) {
+	private void loadLevel(int level) throws SQLException {
 		/*final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(level)));
         String line;
         int y = 0;
@@ -60,6 +63,13 @@ public class Level extends Observable implements ILevel {
             y++;
         }
         buffer.close();*/
+		String levelText = LorannDAO.chooseLevel(level);
+		this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
+		for(int y = 0; y < this.getHeight(); y++) {
+			for (int x = 0; x < this.getWidth(); x++) {
+                this.setOnTheRoadXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelText.toCharArray()[x]));
+            }
+		}
 	}
 
 	@Override

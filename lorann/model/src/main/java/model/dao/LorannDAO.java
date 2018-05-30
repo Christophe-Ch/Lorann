@@ -12,22 +12,22 @@ public abstract class LorannDAO extends AbstractDAO{
     private static String sqlChooseLevel = "{call ChooseLevel(?)}";
     
     /**
-     * Gets the example by id.
+     * Gets the level's text by id.
      *
      * @param id
      *            the id
-     * @return the example by id
+     * @return the level's text by id
      * @throws SQLException
      *             the SQL exception
      */
-    public static Level chooseLevel(final int id) throws SQLException {
+    public static String chooseLevel(final int id) throws SQLException {
         final CallableStatement callStatement = prepareCall(sqlChooseLevel);
-        Level level = null;
+        String level = null;
         callStatement.setInt(1, id);
         if (callStatement.execute()) {
             final ResultSet result = callStatement.getResultSet();
             if (result.first()) {
-                level = new Level(id);
+                level = result.getString("text");
             }
             result.close();
         }
