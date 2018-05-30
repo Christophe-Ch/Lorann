@@ -2,14 +2,25 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.logging.Level;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.ILevel;
+import model.IMobile;
+import view.ViewFacade;
+
 public class ViewFacadeTest {
 
+	private ILevel level;
+	private IMobile myCharacter;
+	private ViewFacade view;
+	
 	@Before
 	public void setUp() throws Exception {
+		view = new ViewFacade(level, myCharacter);
 	}
 
 	@After
@@ -43,7 +54,7 @@ public class ViewFacadeTest {
 
 	@Test
 	public void testGetLevel() {
-		fail("Not yet implemented");
+		assertEquals(this.level, this.view.getLevel());
 	}
 
 	@Test
