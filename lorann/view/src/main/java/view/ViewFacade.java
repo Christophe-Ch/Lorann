@@ -120,7 +120,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the Level.
      */
 	public ILevel getLevel() {
-		return level;
+		return this.level;
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the Character.
      */
 	public IMobile getMyCharacter() {
-		return myCharacter;
+		return this.myCharacter;
 	}
 
 	/**
@@ -153,8 +153,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	/**
      * Get the OrderPerformer.
      */
-	private IOrderPerformer getOrderPerformer() {
-		return orderPerformer;
+	public IOrderPerformer getOrderPerformer() {
+		return this.orderPerformer;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the full view.
      */
 	public Rectangle getFullView() {
-		return fullView;
+		return this.fullView;
 	}
 
 	/**
