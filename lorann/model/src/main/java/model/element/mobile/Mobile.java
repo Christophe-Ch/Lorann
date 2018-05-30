@@ -3,99 +3,108 @@ package model.element.mobile;
 import java.awt.Image;
 import java.awt.Point;
 
+import model.ILevel;
 import model.IMobile;
 import model.Permeability;
 import model.Sprite;
+import model.element.Element;
+import showboard.IBoard;
 
-public abstract class Mobile implements IMobile {
+public abstract class Mobile extends Element implements IMobile {
 	
-	@Override
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+	private Point position;
+	private boolean alive = true;
+	private ILevel level;
+	private IBoard board;
+
+	public Mobile(Sprite sprite, Permeability permeability, ILevel level) {
+		this(sprite, permeability, level, 0, 0);
+	}
+
+	public Mobile(Sprite sprite, Permeability permeability, ILevel level, int x, int y) {
+		super(sprite, permeability);
+		this.level = level;
+		this.position = new Point();
+		this.getPosition().x = x;
+		this.getPosition().y = y;
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO Auto-generated method stub
-		
+		this.setY(this.getY() - 1);
 	}
 
 	@Override
 	public void moveLeft() {
-		// TODO Auto-generated method stub
-		
+		this.setX(this.getX() - 1);
 	}
 
 	@Override
 	public void moveDown() {
-		// TODO Auto-generated method stub
-		
+		this.setY(this.getY() + 1);
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO Auto-generated method stub
-		
+		this.setX(this.getX() + 1);
 	}
-
-	@Override
-	public void doNothing() {
-		// TODO Auto-generated method stub
-		
+	
+	public void setHasMoved() {
+		this.level.setElementHasChanged();
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getPosition().x;
+	}
+	
+	public void setX(int x) {
+		this.getPosition().x = x;
+        if (this.isHit()) {
+            this.die();
+        }
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getPosition().y;
+	}
+	
+	public void setY(int y) {
+		this.getPosition().y = y;
+        if (this.isHit()) {
+            this.die();
+        }
 	}
 
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.alive;
 	}
 
 	@Override
 	public boolean isHit() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isOnDoor() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isOnKey() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public Point getPosition() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
+	public void shoot() {
+		this.level.
 	}
 
-	@Override
-	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
