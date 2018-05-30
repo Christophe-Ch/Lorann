@@ -18,6 +18,7 @@ public interface IMobile extends IElement, IPawn{
 	boolean isOnDoor();
 	boolean isOnKey();
 	Point getPosition();
+	void shoot();
 	
 
 }
