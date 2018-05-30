@@ -22,7 +22,9 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws InterruptedException {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    	final ModelFacade model = new ModelFacade();
+    	final ViewFacade view = new ViewFacade(level, myCharacter);
+        final ControllerFacade controller = new ControllerFacade(view, model);
 
         try {
             controller.start();
