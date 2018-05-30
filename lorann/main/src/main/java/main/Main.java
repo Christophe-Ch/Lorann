@@ -24,7 +24,7 @@ public abstract class Main {
      * @throws IOException 
      */
     public static void main(final String[] args) throws InterruptedException, IOException {
-    	final IModel model = new ModelFacade();
+    	final IModel model = new ModelFacade(0);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter());
         final IController controller = new ControllerFacade(view, model);
         
