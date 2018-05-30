@@ -17,9 +17,9 @@ import model.IModel;
 import view.IView;
 
 public class ControllerTest {
-	private ControllerMock controller;
-	private ViewMock view = new ViewMock();
-	private ModelMock model = new ModelMock();
+	private ControllerFacade controller;
+	private IView view;
+	private IModel model;
 
 
 	@BeforeClass
@@ -32,7 +32,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.controller = new ControllerMock(view, model);
+		this.controller = new ControllerFacade(view, model);
 	}
 
 	@After
