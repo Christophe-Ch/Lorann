@@ -60,4 +60,20 @@ public abstract class MotionlessElementFactory {
 	public static MotionlessElement createVerticalWall() {
 		return verticalwall;
 	}
+	
+	/**
+     * Gets the good MotionlessElement from file symbol.
+     *
+     * @param fileSymbol
+     *            the file symbol
+     * @return the from file symbol
+     */
+    public static MotionlessElement getFromFileSymbol(final char fileSymbol) {
+        for (final MotionlessElement motionlessElement : motionlessElements) {
+            if (motionlessElement.getSprite().getConsoleImage() == fileSymbol) {
+                return motionlessElement;
+            }
+        }
+        return floor;
+    }
 }

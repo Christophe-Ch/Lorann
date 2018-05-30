@@ -47,7 +47,19 @@ public class Level extends Observable implements ILevel {
 	}
 	
 	private void loadLevel(int level) {
-		
+		/*final BufferedReader buffer = new BufferedReader(new InputStreamReader(new FileInputStream(level)));
+        String line;
+        int y = 0;
+
+        this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
+        line = buffer.readLine();
+        while ((line = buffer.readLine()) != null) {
+            for (int x = 0; x < line.toCharArray().length; x++) {
+                this.setOnTheRoadXY(x, y, MotionlessElementFactory.getFromFileSymbol(line.toCharArray()[x]));
+            }
+            y++;
+        }
+        buffer.close();*/
 	}
 
 	@Override

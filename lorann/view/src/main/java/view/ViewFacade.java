@@ -131,7 +131,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		this.level = level;
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
 			for (int y = 0; y < this.getLevel().getHeight(); y++) {
-				this.getLevel().setOnTheLevelXY(x,y).getSprite().loadImage();
+				this.getLevel().getOnTheLevelXY(x,y).getSprite().loadImage();
 			}
 		}
 	}
