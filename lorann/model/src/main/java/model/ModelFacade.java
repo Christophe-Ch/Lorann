@@ -12,11 +12,14 @@ import model.dao.ExampleDAO;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
+	
+	private ILevel level;
+	private IMobile character;
 
     /**
      * Instantiates a new model facade.
      */
-    public ModelFacade() {
+    public ModelFacade(int level) {
         super();
     }
 
@@ -47,4 +50,22 @@ public final class ModelFacade implements IModel {
         return ExampleDAO.getAllExamples();
     }
 
+	@Override
+	public ILevel getLevel() {
+		return this.level;
+	}
+
+	@Override
+	public IMobile getMyCharacter() {
+		return this.character;
+	}
+	
+	private void setLevel(ILevel level) {
+		this.level = level;
+	}
+
+	private void setCharacter(IMobile character) {
+		this.character = character;
+	}
+	
 }
