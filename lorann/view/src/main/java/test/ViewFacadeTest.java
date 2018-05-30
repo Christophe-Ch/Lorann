@@ -2,54 +2,41 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.logging.Level;
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import controller.IOrderPerformer;
 import model.ILevel;
 import model.IMobile;
 import view.ViewFacade;
 
 public class ViewFacadeTest {
-
+	
 	private ILevel level;
 	private IMobile myCharacter;
 	private ViewFacade view;
+	private Rectangle fullView;
 	
 	@Before
 	public void setUp() throws Exception {
+		level = new LevelMock();
+		myCharacter = new MobileMock();
 		view = new ViewFacade(level, myCharacter);
+		fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
 	}
 
 	@After
 	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testDisplayMessage() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testRun() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyTyped() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyPressed() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyReleased() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -58,33 +45,41 @@ public class ViewFacadeTest {
 	}
 
 	@Test
-	public void testSetLevel() {
-		fail("Not yet implemented");
+	public void testSetLevel() throws IOException {
+		final ILevel expected = new LevelMock();
+		this.view.setLevel(expected);
+		assertEquals(expected, this.view.getLevel());
 	}
 
 	@Test
 	public void testGetMyCharacter() {
-		fail("Not yet implemented");
+		assertEquals(this.myCharacter, this.view.getMyCharacter());
 	}
 
 	@Test
 	public void testSetMyCharacter() {
-		fail("Not yet implemented");
+		final IMobile expected = new MobileMock();
+		this.view.setMyCharacter(expected);
+		assertEquals(expected, this.view.getMyCharacter());
 	}
 
 	@Test
 	public void testSetOrderPerformer() {
-		fail("Not yet implemented");
+		IOrderPerformer orderPerformer = new ControllerFacadeMock();
+		this.view.setOrderPerformer(orderPerformer);
+		assertEquals(orderPerformer, this.view.getOrderPerformer());
 	}
 
 	@Test
 	public void testGetFullView() {
-		fail("Not yet implemented");
+		assertEquals(fullView, this.view.getFullView());
 	}
 
 	@Test
 	public void testSetFullView() {
-		fail("Not yet implemented");
+		final Rectangle expected = new Rectangle(0, 0, level.getWidth(), level.getHeight());
+		this.view.setFullView(expected);
+		assertEquals(expected, this.view.getFullView());
 	}
 
 }

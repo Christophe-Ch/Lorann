@@ -37,7 +37,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	/** The Constant squareSize. */
     private static final int squareSize = 32;
 
-    /** The Constant closeView. */
+    /** The Constant fullView. */
     private Rectangle fullView;
     
 
@@ -48,7 +48,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     public ViewFacade(ILevel level, IMobile myCharacter) throws IOException {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
-        this.getMyCharacter().getSprite().loadImage();
+        //this.getMyCharacter().getSprite().loadImage();
         this.setFullView(new Rectangle(0, 0, this.getLevel().getWidth(), this.getLevel().getHeight()));
         SwingUtilities.invokeLater(this);
     }
@@ -104,11 +104,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
-		try {
-            this.getOrderPerformer().performOrder(keyEvent);
-        } catch (final IOException exception) {
-            exception.printStackTrace();
-        }
+		this.getOrderPerformer().performOrder(keyEvent);
 	}
 
 	/*
@@ -124,13 +120,14 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the Level.
      */
 	public ILevel getLevel() {
-		return level;
+		return this.level;
 	}
 
 	/**
      * Set the Level.
+	 * @throws IOException 
      */
-	public void setLevel(ILevel level) {
+	public void setLevel(ILevel level) throws IOException {
 		this.level = level;
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
 			for (int y = 0; y < this.getLevel().getHeight(); y++) {
@@ -143,7 +140,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the Character.
      */
 	public IMobile getMyCharacter() {
-		return myCharacter;
+		return this.myCharacter;
 	}
 
 	/**
@@ -156,8 +153,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	/**
      * Get the OrderPerformer.
      */
-	private IOrderPerformer getOrderPerformer() {
-		return orderPerformer;
+	public IOrderPerformer getOrderPerformer() {
+		return this.orderPerformer;
 	}
 
 	/**
@@ -171,7 +168,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Get the full view.
      */
 	public Rectangle getFullView() {
-		return fullView;
+		return this.fullView;
 	}
 
 	/**

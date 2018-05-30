@@ -17,9 +17,9 @@ import model.IModel;
 import view.IView;
 
 public class ControllerTest {
-	private ControllerFacade controller;
-	private IView view;
-	private IModel model;
+	private ControllerMock controller;
+	private ViewMock view = new ViewMock();
+	private ModelMock model = new ModelMock();
 
 
 	@BeforeClass
@@ -32,7 +32,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.controller = new ControllerFacade(view, model);
+		this.controller = new ControllerMock(view, model);
 	}
 
 	@After
@@ -75,5 +75,6 @@ public class ControllerTest {
 		this.controller.setStackOrder(keyEvent);
 		assertEquals(keyEvent, this.controller.getStackOrder());
 	}
+	
 
 }
