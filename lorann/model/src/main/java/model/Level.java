@@ -12,7 +12,7 @@ public class Level extends Observable implements ILevel {
 	
 	private IElement[][] onTheLevel;
 	
-	public Level(int level) {
+	public Level(int level) throws SQLException {
 		super();
 		this.loadLevel(level);
 	}
