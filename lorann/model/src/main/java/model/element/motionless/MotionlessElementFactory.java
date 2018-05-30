@@ -1,8 +1,8 @@
-package motionless;
+package model.element.motionless;
 
 public abstract class MotionlessElementFactory {
 
-	private static final ClosedDoor      closedoor      = new ClosedDoor();
+	private static final ClosedDoor      closedoor     = new ClosedDoor();
 	
 	private static final CornerWall     cornerwall     = new CornerWall();
 	
