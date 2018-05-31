@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.Observable;
 
 public interface ILevel {
@@ -11,5 +12,6 @@ public interface ILevel {
 	boolean setSpellOnTheLevelXY(int x, int y, IElement spell);
 	Observable getObservable();
 	void setElementHasChanged();
+	Point getCharacterPosition();
 
 }

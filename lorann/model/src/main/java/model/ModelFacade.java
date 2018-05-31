@@ -1,10 +1,8 @@
 package model;
 
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-
-import model.dao.ExampleDAO;
-import model.dao.LorannDAO;
+import model.element.mobile.MyCharacter;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -19,15 +17,15 @@ public final class ModelFacade implements IModel {
 
     /**
      * Instantiates a new model facade.
+     * @throws SQLException 
+     * @throws IOException 
      */
-    public ModelFacade(int level) {
+    public ModelFacade(int level) throws SQLException, IOException {
         super();
+        this.setLevel(new Level(level));
+        this.setCharacter(new MyCharacter((int)this.level.getCharacterPosition().getX(), (int)this.level.getCharacterPosition().getY(), this.level));
     }
     
-    @Override
-	public Level chooseLevel(int id) throws SQLException {
-		return LorannDAO.chooseLevel(id);
-	}
 	@Override
 	public ILevel getLevel() {
 		return this.level;
@@ -45,7 +43,5 @@ public final class ModelFacade implements IModel {
 	private void setCharacter(IMobile character) {
 		this.character = character;
 	}
-
-	
 	
 }
