@@ -38,9 +38,15 @@ public class LevelMock implements ILevel{
 	}
 
 	@Override
-	public IElement setOnTheLevelXY(int x, int y) {
+	public void setOnTheLevelXY(int x, int y, IElement element) {
 		// TODO Auto-generated method stub
-		return null;
+		
+	}
+
+	@Override
+	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

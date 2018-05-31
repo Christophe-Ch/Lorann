@@ -62,7 +62,7 @@ public class ViewFacadeTest {
 		this.view.setMyCharacter(expected);
 		assertEquals(expected, this.view.getMyCharacter());
 	}
-
+	
 	@Test
 	public void testSetOrderPerformer() {
 		IOrderPerformer orderPerformer = new ControllerFacadeMock();
@@ -72,7 +72,7 @@ public class ViewFacadeTest {
 
 	@Test
 	public void testGetFullView() {
-		assertEquals(fullView, this.view.getFullView());
+		assertEquals(this.fullView, this.view.getFullView());
 	}
 
 	@Test
