@@ -41,8 +41,8 @@ public class MyCharacter extends Mobile{
 		sprites[6] = lorann_u;
 		sprites[7] = lorann_ur;
 		
-		this.setX(x);
-		this.setY(y);
+		this.initX(x);
+		this.initY(y);
 	}
 
 	@Override
@@ -65,25 +65,25 @@ public class MyCharacter extends Mobile{
 	@Override
 	public void moveLeft() {
 		super.moveLeft();
-		this.setSprite(lorann_l);
+		this.setSprite(lorann_bl);
 	}
 	
 	@Override
 	public void moveRight() {
 		super.moveRight();
-		this.setSprite(lorann_r);
+		this.setSprite(lorann_ur);
 	}
 	
 	@Override
 	public void moveUp() {
 		super.moveUp();
-		this.setSprite(lorann_u);
+		this.setSprite(lorann_ul);
 	}
 	
 	@Override
 	public void moveDown() {
 		super.moveDown();
-		this.setSprite(lorann_b);
+		this.setSprite(lorann_br);
 	}
 
 	@Override

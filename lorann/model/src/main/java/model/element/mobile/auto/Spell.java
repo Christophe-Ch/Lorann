@@ -23,4 +23,10 @@ public class Spell extends Mobile{
 		
 	}
 
+	@Override
+	public boolean isHit() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
