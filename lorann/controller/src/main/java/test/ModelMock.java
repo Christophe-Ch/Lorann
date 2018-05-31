@@ -26,4 +26,25 @@ public final class ModelMock implements IModel {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public IMobile[] getPurses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public IMobile[] getMonsters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public IMobile getEnergyBall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
