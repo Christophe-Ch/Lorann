@@ -19,8 +19,6 @@ public class ControllerMock implements IController, IOrderPerformer{
     /** The order. */
     private KeyEvent stackOrder;
     
-    /** The speed of refresh. */
-    private static int speed = 300;
 
     /**
      * Instantiates a new controller facade.

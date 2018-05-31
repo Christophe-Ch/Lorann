@@ -3,7 +3,6 @@ package test;
 import static org.junit.Assert.*;
 
 import java.awt.Button;
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 
 import org.junit.After;
@@ -12,9 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import controller.ControllerFacade;
-import model.IModel;
-import view.IView;
 
 public class ControllerTest {
 	private ControllerMock controller;
