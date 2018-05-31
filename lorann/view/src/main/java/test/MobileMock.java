@@ -64,24 +64,6 @@ public class MobileMock implements IMobile {
 	}
 
 	@Override
-	public boolean isHit() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isOnDoor() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isOnKey() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public Point getPosition() {
 		// TODO Auto-generated method stub
 		return null;
@@ -103,6 +85,42 @@ public class MobileMock implements IMobile {
 	public void shoot() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean isHit(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isOnDoor(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isOnKey(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isOnWall(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isOnPurse(int newX, int newY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

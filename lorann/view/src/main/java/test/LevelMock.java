@@ -57,4 +57,22 @@ public class LevelMock implements ILevel{
 		return null;
 	}
 
+	@Override
+	public Point[] getPurses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point[] getMonsters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point getEnergyBall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
