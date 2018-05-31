@@ -17,7 +17,7 @@ public class Level extends Observable implements ILevel {
 	
 	private Point characterPosition;
 	
-	private ArrayList<Point> pursesPosition;
+	private ArrayList<Point> pursesPositions;
 	
 	private ArrayList<Point> monstersPositions;
 	
@@ -25,7 +25,7 @@ public class Level extends Observable implements ILevel {
 	
 	public Level(int level) throws SQLException {
 		super();
-		pursesPosition = new ArrayList<>();
+		pursesPositions = new ArrayList<>();
 		monstersPositions = new ArrayList<>();
 		this.loadLevel(level);
 	}
@@ -75,7 +75,7 @@ public class Level extends Observable implements ILevel {
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					case 'A':
-						this.pursesPosition.add(new Point(x, y));
+						this.pursesPositions.add(new Point(x, y));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					default: 
@@ -107,9 +107,9 @@ public class Level extends Observable implements ILevel {
 	}
 	
 	public Point[] getPurses() {
-		Point[] result = new Point[this.pursesPosition.size()];
+		Point[] result = new Point[this.pursesPositions.size()];
 		for(int i = 0; i < result.length; i++) {
-			result[i] = pursesPosition.get(i);
+			result[i] = pursesPositions.get(i);
 		}
 		return result;
 	}

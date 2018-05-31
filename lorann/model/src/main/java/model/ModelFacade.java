@@ -34,6 +34,7 @@ public final class ModelFacade implements IModel {
         
         for(int i = 0; i < purses.length; i++) {
         	purses[i] = new Purse((int)this.getLevel().getPurses()[i].getX(), (int)this.getLevel().getPurses()[i].getY(), this.level);
+        	((MyCharacter)this.getMyCharacter()).addPurse(purses[i]);
         }
         
         for(int i = 0; i < monsters.length; i++) {

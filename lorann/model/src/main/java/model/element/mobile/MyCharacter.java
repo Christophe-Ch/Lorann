@@ -1,8 +1,10 @@
 package model.element.mobile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import model.ILevel;
+import model.IMobile;
 import model.Permeability;
 import model.Sprite;
 
@@ -16,6 +18,10 @@ public class MyCharacter extends Mobile{
 	private static Sprite lorann_u = new Sprite(' ' ,"lorann_u");
 	private static Sprite lorann_ul = new Sprite(' ' ,"lorann_ul");
 	private static Sprite lorann_ur = new Sprite(' ' ,"lorann_ur");
+	
+	private ArrayList<IMobile> purses;
+	private ArrayList<IMobile> monsters;
+	private IMobile energyBall;
 	
 	private static Sprite[] sprites;
 	
@@ -43,6 +49,9 @@ public class MyCharacter extends Mobile{
 		
 		this.initX(x);
 		this.initY(y);
+		
+		this.purses = new ArrayList<>();
+		this.monsters = new ArrayList<>();
 	}
 
 	@Override
@@ -84,6 +93,23 @@ public class MyCharacter extends Mobile{
 	public void moveDown() {
 		super.moveDown();
 		this.setSprite(lorann_br);
+	}
+	
+	@Override
+	public boolean isOnPurse(int newX, int newY) {
+		boolean result = false;
+		
+		for(IMobile purse : purses) {
+			if(purse.getX() == newX && purse.getY() == newY) {
+				result = true;
+			}
+		}
+		
+		return result;
+	}
+	
+	public void addPurse(IMobile purse) {
+		purses.add(purse);
 	}
 
 }
