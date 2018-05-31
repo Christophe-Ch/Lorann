@@ -10,5 +10,7 @@ public enum Permeability {
 	
 	DOOR,
 	
-	MONSTER
+	MONSTER,
+	
+	SPELL
 }

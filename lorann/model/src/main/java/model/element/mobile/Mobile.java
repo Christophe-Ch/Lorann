@@ -113,11 +113,18 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public void shoot() {
-		this.level.setSpellOnTheLevelXY(this.getX() - this.lastX, this.getY() - this.lastY, new Spell());
+		int x = this.getX() - lastX;
+		int y = this.getY() - lastY;
+		this.level.setSpellOnTheLevelXY(x, y, new Spell(this.getLevel(), x, y));
 	}
 	
 	protected void die() {
 		this.alive = false;
+		this.setHasMoved();
+	}
+	
+	protected ILevel getLevel() {
+		return this.level;
 	}
 
 }

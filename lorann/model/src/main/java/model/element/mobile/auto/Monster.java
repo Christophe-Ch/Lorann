@@ -7,8 +7,15 @@ import model.element.mobile.Mobile;
 
 public abstract class Monster extends Mobile {
 
-	public Monster(Sprite sprite, Permeability permeability, ILevel level, int x, int y) {
-		super(sprite, permeability, level, x, y);
+	public Monster(Sprite sprite, ILevel level, int x, int y) {
+		super(sprite, Permeability.MONSTER, level, x, y);
+	}
+	
+	public boolean isHit() {
+		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY()) instanceof Spell) {
+			return true;
+		}
+		return false;
 	}
 
 }
