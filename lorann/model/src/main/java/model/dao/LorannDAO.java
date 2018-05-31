@@ -4,8 +4,6 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Level;
-
 public abstract class LorannDAO extends AbstractDAO{
 
 	/** The sql example by id. */

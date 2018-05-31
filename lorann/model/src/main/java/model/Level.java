@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.sql.SQLException;
 import java.util.Observable;
 
@@ -12,6 +13,8 @@ public class Level extends Observable implements ILevel {
 	private final int height = 12;
 	
 	private IElement[][] onTheLevel;
+	
+	private Point characterPosition;
 	
 	public Level(int level) throws SQLException {
 		super();
@@ -55,7 +58,10 @@ public class Level extends Observable implements ILevel {
 		this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
 		for(int y = 0; y < this.getHeight(); y++) {
 			for (int x = 0; x < this.getWidth(); x++) {
-                this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelText.toCharArray()[x]));
+				if(levelText.toCharArray()[x] != 'L')
+					this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelText.toCharArray()[x]));
+				else
+					this.setCharacterPosition(new Point(x, y));
             }
 		}
 	}
@@ -69,6 +75,14 @@ public class Level extends Observable implements ILevel {
 		else {
 			return false;
 		}
+	}
+	
+	public Point getCharacterPosition() {
+		return this.characterPosition;
+	}
+	
+	private void setCharacterPosition(Point position) {
+		this.characterPosition = position;
 	}
 
 }
