@@ -68,9 +68,11 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	public void setX(int x) {
-		this.getPosition().x = x;
-        if (this.isHit()) {
-            this.die();
+        if (this.isWall()) {
+        	
+        }
+        else {
+        	this.getPosition().x = x;
         }
 	}
 
@@ -91,9 +93,8 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	@Override
-	public boolean isHit() {
-		return false;
+	public boolean isWall() {
+		return (this.getLevel().getOnTheLevelXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import model.Sprite;
 public class EnergyBall extends MotionlessElement {
 	
 	/** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('B', "crystal_ball.png");
+    private static final Sprite SPRITE = new Sprite('B', "crystal_ball");
 
 	EnergyBall() {
 		super(SPRITE, Permeability.COLLECTIBLE);

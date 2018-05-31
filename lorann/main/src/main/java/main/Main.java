@@ -27,7 +27,7 @@ public abstract class Main {
      * @throws SQLException 
      */
     public static void main(final String[] args) throws InterruptedException, IOException, SQLException {
-    	final IModel model = new ModelFacade(0);
+    	final IModel model = new ModelFacade(1);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter());
         final IController controller = new ControllerFacade(view, model);
         
