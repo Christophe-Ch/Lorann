@@ -50,6 +50,8 @@ public class ControllerFacade implements IController, IOrderPerformer {
      */
     public void start() throws SQLException, InterruptedException, IOException {
         while(this.getModel().getMyCharacter().isAlive()) {
+        	System.out.println("x : " + this.getModel().getMyCharacter().getX());
+        	System.out.println("y : " + this.getModel().getMyCharacter().getY());
         	Thread.sleep(speed);
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
