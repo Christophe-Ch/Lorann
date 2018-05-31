@@ -1,5 +1,6 @@
 package test;
 
+import java.awt.Point;
 import java.util.Observable;
 
 import model.IElement;
@@ -47,6 +48,12 @@ public class LevelMock implements ILevel{
 	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Point getCharacterPosition() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

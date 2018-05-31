@@ -51,7 +51,8 @@ public class ControllerFacade implements IController, IOrderPerformer {
     public void start() throws SQLException, InterruptedException, IOException {
         while(this.getModel().getMyCharacter().isAlive()) {
         	Thread.sleep(speed);
-        	switch(this.getStackOrder().getKeyCode()) {
+        	if(this.getStackOrder() != null) {
+        		switch(this.getStackOrder().getKeyCode()) {
         		case KeyEvent.VK_RIGHT:
         			this.getModel().getMyCharacter().moveRight();
         			break;
@@ -70,8 +71,13 @@ public class ControllerFacade implements IController, IOrderPerformer {
         		default:
         			this.getModel().getMyCharacter().doNothing();
         			break;
+        		}
+        		this.stackOrder = null;
         	}
-        	this.stackOrder = null;
+        	else {
+        		this.getModel().getMyCharacter().doNothing();
+        	}
+        	
         }
         this.getView().displayMessage("You're dead");
     }

@@ -6,15 +6,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 
+import javax.lang.model.element.VariableElement;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controller.IOrderPerformer;
 
 import showboard.BoardFrame;
-
+import model.IElement;
 import model.ILevel;
 import model.IMobile;
+import model.Sprite;
 
 
 /**
@@ -48,7 +50,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     public ViewFacade(ILevel level, IMobile myCharacter) throws IOException {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
-        //this.getMyCharacter().getSprite().loadImage();
+        this.getMyCharacter().getSprite().loadImage();
         this.setFullView(new Rectangle(0, 0, this.getLevel().getWidth(), this.getLevel().getHeight()));
         SwingUtilities.invokeLater(this);
     }
@@ -129,8 +131,13 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	public void setLevel(ILevel level) throws IOException {
 		this.level = level;
-		for (int x = 0; x < this.getLevel().getWidth(); x++) {
-			for (int y = 0; y < this.getLevel().getHeight(); y++) {
+		int y = 0;
+		int x = 0;
+		for (y = 0; y < this.getLevel().getHeight(); y++) {
+			for (x = 0; x < this.getLevel().getWidth(); x++) {
+				ILevel levelTest = this.getLevel();
+				IElement elementTest = this.getLevel().getOnTheLevelXY(x,y);
+				Sprite spriteTest = this.getLevel().getOnTheLevelXY(x,y).getSprite();
 				this.getLevel().getOnTheLevelXY(x,y).getSprite().loadImage();
 			}
 		}

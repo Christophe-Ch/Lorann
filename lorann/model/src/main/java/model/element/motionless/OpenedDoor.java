@@ -6,7 +6,7 @@ import model.Sprite;
 public class OpenedDoor extends MotionlessElement{
 
 	/** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('D', "gate_open.png");
+    private static final Sprite SPRITE = new Sprite('D', "gate_open");
     
 	OpenedDoor() {
 		super(SPRITE, Permeability.DOOR);

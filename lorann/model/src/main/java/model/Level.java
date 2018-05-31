@@ -56,14 +56,20 @@ public class Level extends Observable implements ILevel {
 	private void loadLevel(int level) throws SQLException {
 		String levelText = LorannDAO.chooseLevel(level);
 		this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
-		for(int y = 0; y < this.getHeight(); y++) {
-			for (int x = 0; x < this.getWidth(); x++) {
-				if(levelText.toCharArray()[x] != 'L')
-					this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelText.toCharArray()[x]));
-				else
+		String[] levelArray = levelText.split(",");
+		
+		for(int y = 0; y < 12; y++) {
+			for(int x = 0; x < 20; x++) {
+				if(levelArray[y].toCharArray()[x] != 'L') {
+					this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
+				}
+				else {
 					this.setCharacterPosition(new Point(x, y));
-            }
+					this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+				}
+			}
 		}
+		
 	}
 
 	@Override

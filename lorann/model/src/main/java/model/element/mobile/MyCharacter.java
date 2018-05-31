@@ -40,6 +40,9 @@ public class MyCharacter extends Mobile{
 		sprites[5] = lorann_ul;
 		sprites[6] = lorann_u;
 		sprites[7] = lorann_ur;
+		
+		this.setX(x);
+		this.setY(y);
 	}
 
 	@Override
@@ -51,7 +54,7 @@ public class MyCharacter extends Mobile{
 			}
 		}
 		
-		if(index < 6)
+		if(index < 7)
 			this.setSprite(sprites[index + 1]);
 		else
 			this.setSprite(sprites[0]);
