@@ -25,7 +25,7 @@ public class ControllerFacade implements IController, IOrderPerformer {
     private KeyEvent stackOrder;
     
     /** The speed of refresh. */
-    private static int speed = 300;
+    private static int speed = 100;
 
     /**
      * Instantiates a new controller facade.

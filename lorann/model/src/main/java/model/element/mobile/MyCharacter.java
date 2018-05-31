@@ -86,4 +86,10 @@ public class MyCharacter extends Mobile{
 		this.setSprite(lorann_b);
 	}
 
+	@Override
+	public boolean isHit() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

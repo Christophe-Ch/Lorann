@@ -76,7 +76,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setSize(this.fullView.width * squareSize, this.fullView.height * squareSize);
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
-        boardFrame.setFocusable(false);
+        boardFrame.setFocusable(true);
         boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
