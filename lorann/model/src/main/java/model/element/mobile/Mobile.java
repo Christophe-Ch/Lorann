@@ -8,6 +8,11 @@ import model.Permeability;
 import model.Sprite;
 import model.element.Element;
 import model.element.mobile.auto.Spell;
+import model.element.mobile.collectible.Purse;
+import model.element.motionless.EnergyBall;
+import model.element.motionless.MoneyBag;
+import model.element.motionless.MotionlessElementFactory;
+import model.element.motionless.OpenedDoor;
 
 public abstract class Mobile extends Element implements IMobile {
 	
@@ -68,12 +73,22 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	public void setX(int x) {
-		if (this.isWall(x, this.getY())) {
-        	
+		if (!this.isOnWall(x, this.getY())) {
+			this.getPosition().x = x;
         }
-        else {
-        	this.getPosition().x = x;
-        }
+		
+		if(this.isOnKey(x, this.getY())) {
+			
+		}
+		else if(this.isOnDoor(x, this.getY())) {
+			
+		}
+		else if(this.isHit(x, this.getY())) {
+			
+		}
+		else if(this.isOnPurse(x, this.getY())) {
+			this.getLevel().setOnTheLevelXY(x, this.getY(), MotionlessElementFactory.createFloor());
+		}
 	}
 
 	@Override
@@ -82,12 +97,22 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	public void setY(int y) {
-		if (this.isWall(this.getX(), y)) {
-        	
+		if (!this.isOnWall(this.getX(), y)) {
+			this.getPosition().y = y;
         }
-        else {
-        	this.getPosition().y = y;
-        }
+		
+		if(this.isOnKey(this.getX(), y)) {
+			
+		}
+		else if(this.isOnDoor(this.getX(), y)) {
+			
+		}
+		else if(this.isHit(this.getX(), y)) {
+			
+		}
+		else if(this.isOnPurse(this.getX(), y)) {
+			((Purse)this.getLevel().getOnTheLevelXY(this.getX(), y)).die();
+		}
 	}
 	
 	public void initX(int x) {
@@ -103,18 +128,28 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.alive;
 	}
 
-	public boolean isWall(int newX, int newY) {
+	public boolean isOnWall(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.BLOCKING);
 	}
-
+	
 	@Override
-	public boolean isOnDoor() {
-		return false;
+	public boolean isHit(int newX, int newY) {
+		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.MONSTER);
 	}
 
 	@Override
-	public boolean isOnKey() {
-		return false;
+	public boolean isOnDoor(int newX, int newY) {
+		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof OpenedDoor);
+	}
+
+	@Override
+	public boolean isOnKey(int newX, int newY) {
+		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof EnergyBall);
+	}
+	
+	@Override
+	public boolean isOnPurse(int newX, int newY) {
+		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof MoneyBag);
 	}
 
 	@Override

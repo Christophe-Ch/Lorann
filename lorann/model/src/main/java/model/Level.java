@@ -2,6 +2,7 @@ package model;
 
 import java.awt.Point;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import model.dao.LorannDAO;
@@ -16,8 +17,16 @@ public class Level extends Observable implements ILevel {
 	
 	private Point characterPosition;
 	
+	private ArrayList<Point> pursesPosition;
+	
+	private ArrayList<Point> monstersPositions;
+	
+	private Point energyBall;
+	
 	public Level(int level) throws SQLException {
 		super();
+		pursesPosition = new ArrayList<>();
+		monstersPositions = new ArrayList<>();
 		this.loadLevel(level);
 	}
 
@@ -60,12 +69,18 @@ public class Level extends Observable implements ILevel {
 		
 		for(int y = 0; y < 12; y++) {
 			for(int x = 0; x < 20; x++) {
-				if(levelArray[y].toCharArray()[x] != 'L') {
-					this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
-				}
-				else {
-					this.setCharacterPosition(new Point(x, y));
-					this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+				switch(levelArray[y].toCharArray()[x]) {
+					case 'L':
+						this.setCharacterPosition(new Point(x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					case 'A':
+						this.pursesPosition.add(new Point(x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					default: 
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
+						break;
 				}
 			}
 		}
@@ -90,5 +105,27 @@ public class Level extends Observable implements ILevel {
 	private void setCharacterPosition(Point position) {
 		this.characterPosition = position;
 	}
+	
+	public Point[] getPurses() {
+		Point[] result = new Point[this.pursesPosition.size()];
+		for(int i = 0; i < result.length; i++) {
+			result[i] = pursesPosition.get(i);
+		}
+		return result;
+	}
+	
+	public Point[] getMonsters() {
+		Point[] result = new Point[this.monstersPositions.size()];
+		for(int i = 0; i < result.length; i++) {
+			result[i] = monstersPositions.get(i);
+		}
+		return result;
+	}
+	
+	public Point getEnergyBall() {
+		return energyBall;
+	}
+	
+	
 
 }

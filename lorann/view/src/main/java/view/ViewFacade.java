@@ -42,17 +42,27 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     /** The Constant fullView. */
     private Rectangle fullView;
     
+    private IMobile[] purses;
+    
+    private IMobile[] monsters;
+    
+    private IMobile energyBall;
+    
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter) throws IOException {
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall) throws IOException {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
         this.getMyCharacter().getSprite().loadImage();
         this.setFullView(new Rectangle(0, 0, this.getLevel().getWidth(), this.getLevel().getHeight()));
         SwingUtilities.invokeLater(this);
+        
+        this.purses = purses;
+        this.monsters = monsters;
+        this.energyBall = energyBall;
     }
 
     /*
@@ -84,7 +94,18 @@ public class ViewFacade implements IView, KeyListener, Runnable {
                 boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
             }
         }
-        boardFrame.addPawn(this.getMyCharacter());
+		
+		for(IMobile purse : purses) {
+			try {
+				purse.getSprite().loadImage();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			boardFrame.addPawn(purse);
+		}
+        
+		boardFrame.addPawn(this.getMyCharacter());
+
 
         this.getLevel().getObservable().addObserver(boardFrame.getObserver());
 

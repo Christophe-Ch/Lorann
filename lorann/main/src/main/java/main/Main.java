@@ -28,7 +28,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws InterruptedException, IOException, SQLException {
     	final IModel model = new ModelFacade(2);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter());
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter(), model.getPurses(), model.getMonsters(), model.getEnergyBall());
         final IController controller = new ControllerFacade(view, model);
         
         view.setOrderPerformer(controller.getOrderPerformer());
