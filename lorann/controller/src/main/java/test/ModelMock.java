@@ -1,3 +1,4 @@
+
 package test;
 
 import model.ILevel;
@@ -13,6 +14,7 @@ public final class ModelMock implements IModel {
         super();
     }
 
+
 	@Override
 	public ILevel getLevel() {
 		// TODO Auto-generated method stub
@@ -24,4 +26,3 @@ public final class ModelMock implements IModel {
 		// TODO Auto-generated method stub
 		return null;
 	}
-}
