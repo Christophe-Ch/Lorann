@@ -1,7 +1,5 @@
-package test;
 
-import java.sql.SQLException;
-import java.util.List;
+package test;
 
 import model.ILevel;
 import model.IMobile;
@@ -28,4 +26,3 @@ public final class ModelMock implements IModel {
 		// TODO Auto-generated method stub
 		return null;
 	}
-}
