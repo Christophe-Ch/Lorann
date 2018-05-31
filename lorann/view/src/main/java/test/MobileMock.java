@@ -99,4 +99,10 @@ public class MobileMock implements IMobile {
 		return null;
 	}
 
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
