@@ -87,7 +87,6 @@ public abstract class Mobile extends Element implements IMobile {
 			
 		}
 		else if(this.isOnPurse(x, this.getY())) {
-			this.getLevel().setOnTheLevelXY(x, this.getY(), MotionlessElementFactory.createFloor());
 		}
 	}
 
@@ -111,7 +110,6 @@ public abstract class Mobile extends Element implements IMobile {
 			
 		}
 		else if(this.isOnPurse(this.getX(), y)) {
-			((Purse)this.getLevel().getOnTheLevelXY(this.getX(), y)).die();
 		}
 	}
 	
@@ -164,7 +162,7 @@ public abstract class Mobile extends Element implements IMobile {
 		this.level.setSpellOnTheLevelXY(x, y, new Spell(this.getLevel(), x, y));
 	}
 	
-	protected void die() {
+	public void die() {
 		this.alive = false;
 		this.setHasMoved();
 	}

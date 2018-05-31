@@ -23,6 +23,8 @@ public class MyCharacter extends Mobile{
 	private ArrayList<IMobile> monsters;
 	private IMobile energyBall;
 	
+	private int score = 0;
+	
 	private static Sprite[] sprites;
 	
 	public MyCharacter(int x, int y, ILevel level) throws IOException {
@@ -97,19 +99,25 @@ public class MyCharacter extends Mobile{
 	
 	@Override
 	public boolean isOnPurse(int newX, int newY) {
-		boolean result = false;
-		
 		for(IMobile purse : purses) {
 			if(purse.getX() == newX && purse.getY() == newY) {
-				result = true;
+				score += purse.collect();
+				System.out.println("Score : " + score);
+				return true;
 			}
 		}
 		
-		return result;
+		return false;
 	}
 	
 	public void addPurse(IMobile purse) {
 		purses.add(purse);
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

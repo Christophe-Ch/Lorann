@@ -12,6 +12,8 @@ public class Purse extends Mobile {
 	private static Sprite purseSprite = new Sprite('A', "purse");
 	private static Sprite collected = new Sprite('A', "floor");
 	
+	private static int points = 10;
+	
 	public Purse(int x, int y, ILevel level) throws IOException {
 		super(purseSprite, Permeability.COLLECTIBLE, level, x, y);
 		collected.loadImage();
@@ -23,8 +25,17 @@ public class Purse extends Mobile {
 
 	}
 	
+	public int collect() {
+		if(this.isAlive()) {
+			this.die();
+			return points;
+		}
+		return 0;
+	}
+	
 	@Override
 	public void die() {
+		super.die();
 		this.setSprite(collected);
 	}
 

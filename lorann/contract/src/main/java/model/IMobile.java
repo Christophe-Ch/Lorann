@@ -21,5 +21,6 @@ public interface IMobile extends IElement, IPawn{
 	boolean isOnPurse(int newX, int newY);
 	Point getPosition();
 	void shoot();
+	int collect();
 
 }
