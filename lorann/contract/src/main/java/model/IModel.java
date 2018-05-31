@@ -11,4 +11,10 @@ public interface IModel {
     ILevel getLevel();
     
     IMobile getMyCharacter();
+    
+	IMobile[] getPurses();
+	
+	IMobile[] getMonsters();
+
+	IMobile getEnergyBall();
 }

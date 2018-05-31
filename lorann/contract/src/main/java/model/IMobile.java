@@ -14,11 +14,12 @@ public interface IMobile extends IElement, IPawn{
 	int getX();
 	int getY();
 	boolean isAlive();
-	boolean isHit();
-	boolean isOnDoor();
-	boolean isOnKey();
+	boolean isHit(int newX, int newY);
+	boolean isOnDoor(int newX, int newY);
+	boolean isOnKey(int newX, int newY);
+	boolean isOnWall(int newX, int newY);
+	boolean isOnPurse(int newX, int newY);
 	Point getPosition();
 	void shoot();
-	
 
 }
