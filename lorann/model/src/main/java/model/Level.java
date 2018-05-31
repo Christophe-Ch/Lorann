@@ -78,6 +78,9 @@ public class Level extends Observable implements ILevel {
 						this.pursesPositions.add(new Point(x, y));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
+					case 'B':
+						this.energyBall = new Point(x, y);
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 					default: 
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
 						break;

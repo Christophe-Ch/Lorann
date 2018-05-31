@@ -24,6 +24,7 @@ public class MyCharacter extends Mobile{
 	private IMobile energyBall;
 	
 	private int score = 0;
+	private boolean hasTheKey = false;
 	
 	private static Sprite[] sprites;
 	
@@ -110,8 +111,24 @@ public class MyCharacter extends Mobile{
 		return false;
 	}
 	
+	@Override
+	public boolean isOnKey(int newX, int newY) {
+		if(energyBall.getX() == newX && energyBall.getY() == newY) {
+			energyBall.collect();
+			hasTheKey = true;
+			System.out.println("Key found");
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public void addPurse(IMobile purse) {
 		purses.add(purse);
+	}
+	
+	public void addEnergyBall(IMobile energyBall) {
+		this.energyBall = energyBall;
 	}
 
 	@Override

@@ -6,8 +6,6 @@ public abstract class MotionlessElementFactory {
 	
 	private static final CornerWall     cornerwall     = new CornerWall();
 	
-	private static final EnergyBall     energyball     = new EnergyBall();
-	
 	private static final Floor          floor          = new Floor();
 	
 	private static final HorizontalWall horizontalwall = new HorizontalWall();
@@ -21,7 +19,6 @@ public abstract class MotionlessElementFactory {
 	private static MotionlessElement[] motionlessElements = {
 			closedoor,
 			cornerwall,
-			energyball,
 			floor,
 			horizontalwall,
 			moneybag,
@@ -35,10 +32,6 @@ public abstract class MotionlessElementFactory {
 	
 	public static MotionlessElement createCornerWall() {
 		return cornerwall;
-	}
-	
-	public static MotionlessElement createEnergyBall() {
-		return energyball;
 	}
 	
 	public static MotionlessElement createFloor() {
