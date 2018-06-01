@@ -19,4 +19,6 @@ public interface IModel {
 	IMobile getEnergyBall();
 	
 	IMobile getDoor();
+	
+	boolean hasCharacterWon();
 }

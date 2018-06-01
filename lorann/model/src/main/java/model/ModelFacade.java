@@ -92,5 +92,10 @@ public final class ModelFacade implements IModel {
 	public IMobile getDoor() {
 		return this.door;
 	}
+
+	@Override
+	public boolean hasCharacterWon() {
+		return ((MyCharacter)this.getMyCharacter()).hasWon();
+	}
 	
 }
