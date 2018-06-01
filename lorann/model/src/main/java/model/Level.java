@@ -1,11 +1,16 @@
 package model;
 
 import java.awt.Point;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 import model.dao.LorannDAO;
+import model.element.mobile.auto.FirstMonster;
+import model.element.mobile.collectible.Door;
+import model.element.mobile.collectible.EnergyBall;
+import model.element.mobile.collectible.Purse;
 import model.element.motionless.MotionlessElementFactory;
 
 public class Level extends Observable implements ILevel {
@@ -17,22 +22,22 @@ public class Level extends Observable implements ILevel {
 	
 	private Point characterPosition;
 	
-	private ArrayList<Point> pursesPositions;
+	private ArrayList<IMobile> purses;
 	
-	private ArrayList<Point> monstersPositions;
+	private ArrayList<IMobile> monsters;
 	
-	private Point energyBall;
+	private IMobile energyBall;
 	
-	private Point door;
+	private IMobile door;
 	
 	public Level(int level) {
 		super();
-		pursesPositions = new ArrayList<>();
-		monstersPositions = new ArrayList<>();
+		purses = new ArrayList<>();
+		monsters = new ArrayList<>();
 		
 		try {
 			this.loadLevel(level);
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -70,7 +75,7 @@ public class Level extends Observable implements ILevel {
 
 	}
 	
-	private void loadLevel(int level) throws SQLException {
+	private void loadLevel(int level) throws SQLException, IOException {
 		String levelText = LorannDAO.chooseLevel(level);
 		this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
 		String[] levelArray = levelText.split(",");
@@ -83,15 +88,22 @@ public class Level extends Observable implements ILevel {
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					case 'A':
-						this.pursesPositions.add(new Point(x, y));
+						this.purses.add(new Purse(x, y, this));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					case 'B':
-						this.energyBall = new Point(x, y);
+						this.energyBall = new EnergyBall(x, y, this);
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
 					case 'S':
-						this.door = new Point(x, y);
+						this.door = new Door(x, y, this);
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					case 'M':
+						char test = levelArray[y].toCharArray()[x];
+						this.monsters.add(new FirstMonster(this, x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
 					default: 
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
 						break;
@@ -120,27 +132,27 @@ public class Level extends Observable implements ILevel {
 		this.characterPosition = position;
 	}
 	
-	public Point[] getPurses() {
-		Point[] result = new Point[this.pursesPositions.size()];
+	public IMobile[] getPurses() {
+		IMobile[] result = new IMobile[this.purses.size()];
 		for(int i = 0; i < result.length; i++) {
-			result[i] = pursesPositions.get(i);
+			result[i] = purses.get(i);
 		}
 		return result;
 	}
 	
-	public Point[] getMonsters() {
-		Point[] result = new Point[this.monstersPositions.size()];
+	public IMobile[] getMonsters() {
+		IMobile[] result = new IMobile[this.monsters.size()];
 		for(int i = 0; i < result.length; i++) {
-			result[i] = monstersPositions.get(i);
+			result[i] = monsters.get(i);
 		}
 		return result;
 	}
 	
-	public Point getEnergyBall() {
+	public IMobile getEnergyBall() {
 		return energyBall;
 	}
 	
-	public Point getDoor() {
+	public IMobile getDoor() {
 		return door;
 	}
 	

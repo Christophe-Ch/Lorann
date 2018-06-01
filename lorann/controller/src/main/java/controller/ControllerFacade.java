@@ -4,7 +4,9 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import model.IMobile;
 import model.IModel;
+import model.IMonster;
 import view.IView;
 
 /**
@@ -51,6 +53,11 @@ public class ControllerFacade implements IController, IOrderPerformer {
     public void start() throws SQLException, InterruptedException, IOException {
         while(this.getModel().getMyCharacter().isAlive()) {
         	Thread.sleep(speed);
+        	
+        	for(IMobile monster : this.getModel().getMonsters()) {
+        		((IMonster)monster).move();
+        	}
+        	
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
         		case KeyEvent.VK_RIGHT:
