@@ -103,6 +103,14 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			}
 			boardFrame.addPawn(purse);
 		}
+		
+		try {
+			this.energyBall.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		boardFrame.addPawn(this.energyBall);
         
 		boardFrame.addPawn(this.getMyCharacter());
 

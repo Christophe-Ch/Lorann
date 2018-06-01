@@ -9,7 +9,6 @@ import model.Sprite;
 import model.element.Element;
 import model.element.mobile.auto.Spell;
 import model.element.mobile.collectible.Purse;
-import model.element.motionless.EnergyBall;
 import model.element.motionless.MoneyBag;
 import model.element.motionless.MotionlessElementFactory;
 import model.element.motionless.OpenedDoor;
@@ -77,17 +76,10 @@ public abstract class Mobile extends Element implements IMobile {
 			this.getPosition().x = x;
         }
 		
-		if(this.isOnKey(x, this.getY())) {
-			
-		}
-		else if(this.isOnDoor(x, this.getY())) {
-			
-		}
-		else if(this.isHit(x, this.getY())) {
-			
-		}
-		else if(this.isOnPurse(x, this.getY())) {
-		}
+		if(this.isOnKey(x, this.getY())) {}
+		else if(this.isOnDoor(x, this.getY())) {}
+		else if(this.isHit(x, this.getY())) {}
+		else if(this.isOnPurse(x, this.getY())) {}
 	}
 
 	@Override
@@ -99,18 +91,6 @@ public abstract class Mobile extends Element implements IMobile {
 		if (!this.isOnWall(this.getX(), y)) {
 			this.getPosition().y = y;
         }
-		
-		if(this.isOnKey(this.getX(), y)) {
-			
-		}
-		else if(this.isOnDoor(this.getX(), y)) {
-			
-		}
-		else if(this.isHit(this.getX(), y)) {
-			
-		}
-		else if(this.isOnPurse(this.getX(), y)) {
-		}
 	}
 	
 	public void initX(int x) {
@@ -138,11 +118,6 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean isOnDoor(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof OpenedDoor);
-	}
-
-	@Override
-	public boolean isOnKey(int newX, int newY) {
-		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof EnergyBall);
 	}
 	
 	@Override

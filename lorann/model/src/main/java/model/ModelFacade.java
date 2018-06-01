@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
+import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
 
 /**
@@ -40,6 +41,9 @@ public final class ModelFacade implements IModel {
         for(int i = 0; i < monsters.length; i++) {
         	
         }
+        
+        energyBall = new EnergyBall((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
+        ((MyCharacter)this.getMyCharacter()).addEnergyBall(energyBall);
     }
     
 	@Override
