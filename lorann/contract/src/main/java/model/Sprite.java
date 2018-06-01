@@ -60,6 +60,7 @@ public class Sprite {
      */
     public final void loadImage() throws IOException {
     	String path = System.getProperty("user.dir") + "\\pack3\\" + this.getImageName() + ".png";
+
     	try {
     		this.setImage(ImageIO.read(new File(path)));
     	}
