@@ -16,6 +16,7 @@ public interface ILevel {
 	Point[] getPurses();
 	Point[] getMonsters();
 	Point getEnergyBall();
+	Point getDoor();
 	
 
 }

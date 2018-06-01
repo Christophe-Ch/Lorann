@@ -1,8 +1,6 @@
 package model.element.motionless;
 
 public abstract class MotionlessElementFactory {
-
-	private static final ClosedDoor      closedoor     = new ClosedDoor();
 	
 	private static final CornerWall     cornerwall     = new CornerWall();
 	
@@ -10,25 +8,17 @@ public abstract class MotionlessElementFactory {
 	
 	private static final HorizontalWall horizontalwall = new HorizontalWall();
 	
-	private static final MoneyBag       moneybag       = new MoneyBag();
-	
 	private static final OpenedDoor     openeddoor     = new OpenedDoor();
 	
 	private static final VerticalWall   verticalwall   = new VerticalWall();
 	
 	private static MotionlessElement[] motionlessElements = {
-			closedoor,
 			cornerwall,
 			floor,
 			horizontalwall,
-			moneybag,
 			openeddoor,
 			verticalwall
 	};
-
-	public static MotionlessElement createClosedDoor() {
-		return closedoor;
-	}
 	
 	public static MotionlessElement createCornerWall() {
 		return cornerwall;
@@ -40,10 +30,6 @@ public abstract class MotionlessElementFactory {
 	
 	public static MotionlessElement createHorizontalWall() {
 		return horizontalwall;
-	}
-	
-	public static MotionlessElement createMoneyBag() {
-		return moneybag;
 	}
 	
 	public static MotionlessElement createOpenedDoor() {

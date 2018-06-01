@@ -106,16 +106,6 @@ public abstract class Mobile extends Element implements IMobile {
 		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.MONSTER);
 	}
 
-	/*@Override
-	public boolean isOnDoor(int newX, int newY) {
-		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof OpenedDoor);
-	}
-	
-	@Override
-	public boolean isOnPurse(int newX, int newY) {
-		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof MoneyBag);
-	}*/
-
 	@Override
 	public Point getPosition() {
 		return this.position;
