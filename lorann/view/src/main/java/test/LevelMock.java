@@ -75,4 +75,10 @@ public class LevelMock implements ILevel{
 		return null;
 	}
 
+	@Override
+	public Point getDoor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
