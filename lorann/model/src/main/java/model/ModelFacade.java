@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
+import model.element.mobile.auto.FirstMonster;
 import model.element.mobile.collectible.Door;
 import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
@@ -36,18 +37,24 @@ public final class ModelFacade implements IModel {
         monsters = new IMobile[this.getLevel().getMonsters().length];
         
         for(int i = 0; i < purses.length; i++) {
-        	purses[i] = new Purse((int)this.getLevel().getPurses()[i].getX(), (int)this.getLevel().getPurses()[i].getY(), this.level);
+        	purses[i] = this.getLevel().getPurses()[i];
         	((MyCharacter)this.getMyCharacter()).addPurse(purses[i]);
         }
         
+        
         for(int i = 0; i < monsters.length; i++) {
-        	
+        	switch(this.getLevel().getMonsters()[i].getSprite().getConsoleImage()) {
+	        	case 'M':
+	        		monsters[i] = this.getLevel().getMonsters()[i];
+	            	((MyCharacter)this.getMyCharacter()).addMonster(monsters[i]);
+	        		break;
+        	}
         }
         
-        energyBall = new EnergyBall((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
+        energyBall = this.getLevel().getEnergyBall();
         ((MyCharacter)this.getMyCharacter()).addEnergyBall(energyBall);
         
-        door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
+        door = this.getLevel().getDoor();
         ((MyCharacter)this.getMyCharacter()).addDoor(door);
     }
     

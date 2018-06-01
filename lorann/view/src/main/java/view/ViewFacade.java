@@ -97,6 +97,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
             }
         }
 		
+		// IPawn sprites loading
+		
 		for(IMobile purse : purses) {
 			try {
 				purse.getSprite().loadImage();
@@ -104,6 +106,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(purse);
+		}
+		
+		for(IMobile monster : monsters) {
+			try {
+				monster.getSprite().loadImage();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			boardFrame.addPawn(monster);
 		}
 		
 		try {
