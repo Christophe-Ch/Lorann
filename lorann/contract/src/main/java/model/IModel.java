@@ -17,4 +17,6 @@ public interface IModel {
 	IMobile[] getMonsters();
 
 	IMobile getEnergyBall();
+	
+	IMobile getDoor();
 }

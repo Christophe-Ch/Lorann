@@ -33,10 +33,4 @@ public class EnergyBall extends Mobile {
 		this.setSprite(collected);
 	}
 
-	@Override
-	public boolean isOnKey(int newX, int newY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

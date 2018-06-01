@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
+import model.element.mobile.collectible.Door;
 import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
 
@@ -19,7 +20,8 @@ public final class ModelFacade implements IModel {
 	private IMobile[] purses;
 	private IMobile[] monsters;
 	private IMobile energyBall;
-
+	private IMobile door;
+	
     /**
      * Instantiates a new model facade.
      * @throws SQLException 
@@ -44,6 +46,9 @@ public final class ModelFacade implements IModel {
         
         energyBall = new EnergyBall((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
         ((MyCharacter)this.getMyCharacter()).addEnergyBall(energyBall);
+        
+        door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
+        ((MyCharacter)this.getMyCharacter()).addDoor(door);
     }
     
 	@Override
@@ -80,9 +85,12 @@ public final class ModelFacade implements IModel {
 		this.monsters = monsters;
 	}
 
-	@Override
 	public IMobile getEnergyBall() {
 		return this.energyBall;
+	}
+	
+	public IMobile getDoor() {
+		return this.door;
 	}
 	
 }

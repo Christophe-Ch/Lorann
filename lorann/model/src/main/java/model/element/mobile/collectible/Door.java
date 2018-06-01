@@ -12,8 +12,6 @@ public class Door extends Mobile {
 	private static Sprite opened = new Sprite('D', "gate_open");
 	private static Sprite closed = new Sprite('S', "gate_closed");
 	
-	private static int points = 10;
-	
 	public Door(int x, int y, ILevel level) throws IOException {
 		super(closed, Permeability.COLLECTIBLE, level, x, y);
 		opened.loadImage();
@@ -28,7 +26,6 @@ public class Door extends Mobile {
 	public int collect() {
 		if(this.isAlive()) {
 			this.die();
-			return points;
 		}
 		return 0;
 	}

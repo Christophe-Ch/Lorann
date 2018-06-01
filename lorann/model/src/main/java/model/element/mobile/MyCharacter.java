@@ -85,24 +85,28 @@ public class MyCharacter extends Mobile{
 	@Override
 	public void moveLeft() {
 		super.moveLeft();
+		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_bl);
 	}
 	
 	@Override
 	public void moveRight() {
 		super.moveRight();
+		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ur);
 	}
 	
 	@Override
 	public void moveUp() {
 		super.moveUp();
+		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ul);
 	}
 	
 	@Override
 	public void moveDown() {
 		super.moveDown();
+		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_br);
 	}
 	
@@ -122,6 +126,7 @@ public class MyCharacter extends Mobile{
 		if(energyBall.getX() == newX && energyBall.getY() == newY) {
 			energyBall.collect();
 			hasTheKey = true;
+			door.collect();
 			System.out.println("Key found");
 			return true;
 		}

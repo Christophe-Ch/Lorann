@@ -48,12 +48,13 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     
     private IMobile energyBall;
     
+    private IMobile door;
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall) throws IOException {
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
         this.getMyCharacter().getSprite().loadImage();
@@ -63,6 +64,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.purses = purses;
         this.monsters = monsters;
         this.energyBall = energyBall;
+        this.door = door;
     }
 
     /*
@@ -110,7 +112,17 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		try {
+			this.door.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		boardFrame.addPawn(this.energyBall);
+		
+		boardFrame.addPawn(this.door);
         
 		boardFrame.addPawn(this.getMyCharacter());
 
@@ -164,9 +176,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		int x = 0;
 		for (y = 0; y < this.getLevel().getHeight(); y++) {
 			for (x = 0; x < this.getLevel().getWidth(); x++) {
-				ILevel levelTest = this.getLevel();
-				IElement elementTest = this.getLevel().getOnTheLevelXY(x,y);
-				Sprite spriteTest = this.getLevel().getOnTheLevelXY(x,y).getSprite();
 				this.getLevel().getOnTheLevelXY(x,y).getSprite().loadImage();
 			}
 		}

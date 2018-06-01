@@ -90,7 +90,7 @@ public class Level extends Observable implements ILevel {
 						this.energyBall = new Point(x, y);
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 					case 'S':
-						this.energyBall = new Point(x, y);
+						this.door = new Point(x, y);
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 					default: 
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.getFromFileSymbol(levelArray[y].toCharArray()[x]));
@@ -138,6 +138,10 @@ public class Level extends Observable implements ILevel {
 	
 	public Point getEnergyBall() {
 		return energyBall;
+	}
+	
+	public Point getDoor() {
+		return door;
 	}
 	
 	
