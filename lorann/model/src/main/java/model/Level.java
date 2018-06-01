@@ -23,11 +23,19 @@ public class Level extends Observable implements ILevel {
 	
 	private Point energyBall;
 	
-	public Level(int level) throws SQLException {
+	private Point door;
+	
+	public Level(int level) {
 		super();
 		pursesPositions = new ArrayList<>();
 		monstersPositions = new ArrayList<>();
-		this.loadLevel(level);
+		
+		try {
+			this.loadLevel(level);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -79,6 +87,9 @@ public class Level extends Observable implements ILevel {
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					case 'B':
+						this.energyBall = new Point(x, y);
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+					case 'S':
 						this.energyBall = new Point(x, y);
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 					default: 
