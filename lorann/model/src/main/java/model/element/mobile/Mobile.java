@@ -8,10 +8,6 @@ import model.Permeability;
 import model.Sprite;
 import model.element.Element;
 import model.element.mobile.auto.Spell;
-import model.element.mobile.collectible.Purse;
-import model.element.motionless.MoneyBag;
-import model.element.motionless.MotionlessElementFactory;
-import model.element.motionless.OpenedDoor;
 
 public abstract class Mobile extends Element implements IMobile {
 	
@@ -75,11 +71,6 @@ public abstract class Mobile extends Element implements IMobile {
 		if (!this.isOnWall(x, this.getY())) {
 			this.getPosition().x = x;
         }
-		
-		if(this.isOnKey(x, this.getY())) {}
-		else if(this.isOnDoor(x, this.getY())) {}
-		else if(this.isHit(x, this.getY())) {}
-		else if(this.isOnPurse(x, this.getY())) {}
 	}
 
 	@Override
@@ -115,7 +106,7 @@ public abstract class Mobile extends Element implements IMobile {
 		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.MONSTER);
 	}
 
-	@Override
+	/*@Override
 	public boolean isOnDoor(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof OpenedDoor);
 	}
@@ -123,7 +114,7 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean isOnPurse(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY) instanceof MoneyBag);
-	}
+	}*/
 
 	@Override
 	public Point getPosition() {

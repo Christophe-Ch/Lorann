@@ -22,6 +22,7 @@ public class MyCharacter extends Mobile{
 	private ArrayList<IMobile> purses;
 	private ArrayList<IMobile> monsters;
 	private IMobile energyBall;
+	private IMobile door;
 	
 	private int score = 0;
 	private boolean hasTheKey = false;
@@ -74,6 +75,13 @@ public class MyCharacter extends Mobile{
 		this.setHasMoved();
 	}
 	
+	public void specialCase(int x, int y) {
+		if(this.isOnKey(x, this.getY())) {}
+		else if(this.isOnDoor(x, this.getY())) {}
+		else if(this.isHit(x, this.getY())) {}
+		else if(this.isOnPurse(x, this.getY())) {}
+	}
+	
 	@Override
 	public void moveLeft() {
 		super.moveLeft();
@@ -98,7 +106,6 @@ public class MyCharacter extends Mobile{
 		this.setSprite(lorann_br);
 	}
 	
-	@Override
 	public boolean isOnPurse(int newX, int newY) {
 		for(IMobile purse : purses) {
 			if(purse.getX() == newX && purse.getY() == newY) {
@@ -111,12 +118,22 @@ public class MyCharacter extends Mobile{
 		return false;
 	}
 	
-	@Override
 	public boolean isOnKey(int newX, int newY) {
 		if(energyBall.getX() == newX && energyBall.getY() == newY) {
 			energyBall.collect();
 			hasTheKey = true;
 			System.out.println("Key found");
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isOnDoor(int newX, int newY) {
+		if(door.getX() == newX && door.getY() == newY) {
+			if(hasTheKey) {
+				System.out.println("GG");
+			}
 			return true;
 		}
 		
@@ -129,6 +146,14 @@ public class MyCharacter extends Mobile{
 	
 	public void addEnergyBall(IMobile energyBall) {
 		this.energyBall = energyBall;
+	}
+	
+	public void addMonster(IMobile monster) {
+		this.monsters.add(monster);
+	}
+	
+	public void addDoor(IMobile door) {
+		this.door = door;
 	}
 
 	@Override
