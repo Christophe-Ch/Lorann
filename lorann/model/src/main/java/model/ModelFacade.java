@@ -3,12 +3,6 @@ package model;
 import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
-import model.element.mobile.auto.FirstMonster;
-import model.element.mobile.auto.SecondMonster;
-import model.element.mobile.collectible.Door;
-import model.element.mobile.collectible.EnergyBall;
-import model.element.mobile.collectible.Purse;
-import model.element.motionless.MotionlessElementFactory;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -19,7 +13,7 @@ import model.element.motionless.MotionlessElementFactory;
 public final class ModelFacade implements IModel {
 	
 	private ILevel level;
-	private IMobile character;
+	private MyCharacter character;
 	private IMobile[] purses;
 	private IMobile[] monsters;
 	private IMobile energyBall;
@@ -40,12 +34,12 @@ public final class ModelFacade implements IModel {
         
         for(int i = 0; i < purses.length; i++) {
         	purses[i] = this.getLevel().getPurses()[i];
-        	((MyCharacter)this.getMyCharacter()).addPurse(purses[i]);
+        	this.getMyCharacter().addPurse(purses[i]);
         }
         
         for(int i = 0; i < monsters.length; i++) {
         	monsters[i] = this.getLevel().getMonsters()[i];
-	        ((MyCharacter)this.getMyCharacter()).addMonster(monsters[i]);
+	        this.getMyCharacter().addMonster(monsters[i]);
         }
         
         energyBall = this.getLevel().getEnergyBall();
@@ -61,7 +55,7 @@ public final class ModelFacade implements IModel {
 	}
 
 	@Override
-	public IMobile getMyCharacter() {
+	public MyCharacter getMyCharacter() {
 		return this.character;
 	}
 	
@@ -69,7 +63,7 @@ public final class ModelFacade implements IModel {
 		this.level = level;
 	}
 
-	private void setCharacter(IMobile character) {
+	private void setCharacter(MyCharacter character) {
 		this.character = character;
 	}
 
