@@ -8,6 +8,9 @@ import java.util.Observable;
 
 import model.dao.LorannDAO;
 import model.element.mobile.auto.FirstMonster;
+import model.element.mobile.auto.FourthMonster;
+import model.element.mobile.auto.SecondMonster;
+import model.element.mobile.auto.ThirdMonster;
 import model.element.mobile.collectible.Door;
 import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
@@ -100,8 +103,19 @@ public class Level extends Observable implements ILevel {
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					case 'M':
-						char test = levelArray[y].toCharArray()[x];
 						this.monsters.add(new FirstMonster(this, x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					case 'N':
+						this.monsters.add(new SecondMonster(this, x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					case 'O':
+						this.monsters.add(new ThirdMonster(this, x, y));
+						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
+						break;
+					case 'P':
+						this.monsters.add(new FourthMonster(this, x, y));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
 					default: 
