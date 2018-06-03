@@ -59,12 +59,13 @@ public class Sprite {
      *             Signals that an I/O exception has occurred.
      */
     public final void loadImage() throws IOException {
-    	String path = System.getProperty("user.dir") + "\\images\\" + this.getImageName() + ".png";
+    	String path = System.getProperty("user.dir") + "\\pack3\\" + this.getImageName() + ".png";
+
     	try {
     		this.setImage(ImageIO.read(new File(path)));
     	}
     	catch(Exception e){
-    		path = System.getProperty("user.dir") + "\\images\\floor.png";
+    		path = System.getProperty("user.dir") + "\\pack3\\floor.png";
     		this.setImage(ImageIO.read(new File(path)));
     	}
         

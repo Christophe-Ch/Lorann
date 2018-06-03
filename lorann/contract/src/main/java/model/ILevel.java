@@ -13,10 +13,10 @@ public interface ILevel {
 	Observable getObservable();
 	void setElementHasChanged();
 	Point getCharacterPosition();
-	Point[] getPurses();
-	Point[] getMonsters();
-	Point getEnergyBall();
-	Point getDoor();
+	IMobile[] getPurses();
+	IMobile[] getMonsters();
+	IMobile getEnergyBall();
+	IMobile getDoor();
 	
 
 }

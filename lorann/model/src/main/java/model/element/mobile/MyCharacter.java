@@ -27,6 +27,8 @@ public class MyCharacter extends Mobile{
 	private int score = 0;
 	private boolean hasTheKey = false;
 	
+	private boolean won = false;
+	
 	private static Sprite[] sprites;
 	
 	public MyCharacter(int x, int y, ILevel level) throws IOException {
@@ -60,6 +62,9 @@ public class MyCharacter extends Mobile{
 
 	@Override
 	public void doNothing() {
+		
+		if(isHit(this.getX(), this.getY())) {this.die();}
+		
 		int index = 0;
 		for(int i = 0; i < sprites.length; i++) {
 			if(sprites[i] == this.getSprite()) {
@@ -76,7 +81,8 @@ public class MyCharacter extends Mobile{
 	}
 	
 	public void specialCase(int x, int y) {
-		if(this.isOnKey(x, this.getY())) {}
+		if(isHit(this.getX(), this.getY())) {this.die();}
+		else if(this.isOnKey(x, this.getY())) {}
 		else if(this.isOnDoor(x, this.getY())) {}
 		else if(this.isHit(x, this.getY())) {}
 		else if(this.isOnPurse(x, this.getY())) {}
@@ -137,7 +143,8 @@ public class MyCharacter extends Mobile{
 	public boolean isOnDoor(int newX, int newY) {
 		if(door.getX() == newX && door.getY() == newY) {
 			if(hasTheKey) {
-				System.out.println("GG");
+				this.won = true;
+				this.die();
 			}
 			return true;
 		}
@@ -165,6 +172,20 @@ public class MyCharacter extends Mobile{
 	public int collect() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public boolean hasWon() {
+		return this.won;
+	}
+	
+	@Override
+	public boolean isHit(int newX, int newY) {
+		for(IMobile monster : this.monsters) {
+			if(monster.getX() == newX && monster.getY() == newY) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

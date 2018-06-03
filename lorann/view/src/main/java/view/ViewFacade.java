@@ -89,13 +89,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
-        boardFrame.setFocusTraversalKeysEnabled(false);
+        //boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
                 boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
             }
         }
+		
+		// IPawn sprites loading
 		
 		for(IMobile purse : purses) {
 			try {
@@ -104,6 +106,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(purse);
+		}
+		
+		for(IMobile monster : monsters) {
+			try {
+				monster.getSprite().loadImage();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			boardFrame.addPawn(monster);
 		}
 		
 		try {
