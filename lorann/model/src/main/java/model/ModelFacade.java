@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
 import model.element.mobile.auto.FirstMonster;
+import model.element.mobile.auto.SecondMonster;
 import model.element.mobile.collectible.Door;
 import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
+import model.element.motionless.MotionlessElementFactory;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -41,14 +43,9 @@ public final class ModelFacade implements IModel {
         	((MyCharacter)this.getMyCharacter()).addPurse(purses[i]);
         }
         
-        
         for(int i = 0; i < monsters.length; i++) {
-        	switch(this.getLevel().getMonsters()[i].getSprite().getConsoleImage()) {
-	        	case 'M':
-	        		monsters[i] = this.getLevel().getMonsters()[i];
-	            	((MyCharacter)this.getMyCharacter()).addMonster(monsters[i]);
-	        		break;
-        	}
+        	monsters[i] = this.getLevel().getMonsters()[i];
+	        ((MyCharacter)this.getMyCharacter()).addMonster(monsters[i]);
         }
         
         energyBall = this.getLevel().getEnergyBall();
