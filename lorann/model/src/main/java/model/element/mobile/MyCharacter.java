@@ -89,31 +89,35 @@ public class MyCharacter extends Mobile{
 	}
 	
 	@Override
-	public void moveLeft() {
+	public boolean moveLeft() {
 		super.moveLeft();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_bl);
+		return true;
 	}
 	
 	@Override
-	public void moveRight() {
+	public boolean moveRight() {
 		super.moveRight();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ur);
+		return true;
 	}
 	
 	@Override
-	public void moveUp() {
+	public boolean moveUp() {
 		super.moveUp();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ul);
+		return true;
 	}
 	
 	@Override
-	public void moveDown() {
+	public boolean moveDown() {
 		super.moveDown();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_br);
+		return true;
 	}
 	
 	public boolean isOnPurse(int newX, int newY) {

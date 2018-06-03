@@ -3,7 +3,6 @@ package model.element.mobile.auto;
 import java.util.Random;
 
 import model.ILevel;
-import model.Permeability;
 import model.Sprite;
 
 public class ThirdMonster extends Monster {
@@ -35,55 +34,21 @@ public class ThirdMonster extends Monster {
 		while(!hasMoved) {
 			switch(random.nextInt(4) + 1) {
 				case 1:
-					hasMoved = goUp();
+					hasMoved = moveUp();
 					break;
 				case 2:
-					hasMoved = goDown();
+					hasMoved = moveDown();
 					break;
 				case 3:
-					hasMoved = goLeft();
+					hasMoved = moveLeft();
 					break;
 				case 4:
-					hasMoved = goRight();
+					hasMoved = moveRight();
 					break;
 			}
 		}
 		
 		
-	}
-	
-	public boolean goLeft() {
-		if(this.getLevel().getOnTheLevelXY(this.getX() - 1, this.getY()).getPermeability() != Permeability.BLOCKING) {
-			this.moveLeft();
-			return true;
-		}
-		return false;
-			
-	}
-	
-	public boolean goRight() {
-		if(this.getLevel().getOnTheLevelXY(this.getX() + 1, this.getY()).getPermeability() != Permeability.BLOCKING) {
-			this.moveRight();
-			return true;
-		}
-		return false;
-	}
-
-	public boolean goUp() {
-		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY() - 1).getPermeability() != Permeability.BLOCKING) {
-			this.moveUp();
-			return true;
-		}
-		return false;
-			
-	}
-	
-	public boolean goDown() {
-		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY() + 1).getPermeability() != Permeability.BLOCKING) {
-			this.moveDown();
-			return true;
-		}
-		return false;
 	}
 	
 

@@ -1,7 +1,6 @@
 package model.element.mobile.auto;
 
 import model.ILevel;
-import model.Permeability;
 import model.Sprite;
 
 public class FirstMonster extends Monster {
@@ -28,34 +27,17 @@ public class FirstMonster extends Monster {
 	@Override
 	public void move() {
 		if(this.goingUp) {
-			if(!this.goUp()) {
-				this.goDown();
+			if(!this.moveUp()) {
+				this.moveDown();
 				goingUp = false;
 			}
 		}
 		else {
-			if(!this.goDown()) {
-				this.goUp();
+			if(!this.moveDown()) {
+				this.moveUp();
 				goingUp = true;
 			}
 		}
-	}
-	
-	public boolean goUp() {
-		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY() - 1).getPermeability() != Permeability.BLOCKING) {
-			this.moveUp();
-			return true;
-		}
-		return false;
-			
-	}
-	
-	public boolean goDown() {
-		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY() + 1).getPermeability() != Permeability.BLOCKING) {
-			this.moveDown();
-			return true;
-		}
-		return false;
 	}
 
 	
