@@ -6,17 +6,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 
-import javax.lang.model.element.VariableElement;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controller.IOrderPerformer;
 
 import showboard.BoardFrame;
-import model.IElement;
 import model.ILevel;
 import model.IMobile;
-import model.Sprite;
 
 
 /**
