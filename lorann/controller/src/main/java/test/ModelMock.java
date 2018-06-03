@@ -47,4 +47,11 @@ public final class ModelMock implements IModel {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public IMobile getDoor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

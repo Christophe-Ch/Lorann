@@ -2,13 +2,22 @@
 package test;
 
 import java.awt.Point;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import model.IElement;
 import model.ILevel;
 
-public class LevelMock implements ILevel{
+public class LevelMock extends Observable implements ILevel{
 
+	
+	public LevelMock(int level) {
+		super();
+		
+	}
+	
+	
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
@@ -71,6 +80,12 @@ public class LevelMock implements ILevel{
 
 	@Override
 	public Point getEnergyBall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Point getDoor() {
 		// TODO Auto-generated method stub
 		return null;
 	}

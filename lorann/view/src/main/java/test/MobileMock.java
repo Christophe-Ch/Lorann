@@ -93,25 +93,21 @@ public class MobileMock implements IMobile {
 		return false;
 	}
 
-	@Override
 	public boolean isOnDoor(int newX, int newY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean isOnKey(int newX, int newY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean isOnWall(int newX, int newY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean isOnPurse(int newX, int newY) {
 		// TODO Auto-generated method stub
 		return false;

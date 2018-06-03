@@ -54,7 +54,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException  {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
         this.getMyCharacter().getSprite().loadImage();

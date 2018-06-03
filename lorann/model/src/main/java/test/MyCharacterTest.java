@@ -37,5 +37,30 @@ public class MyCharacterTest {
 		this.character.moveLeft();
 		assertEquals(9, this.character.getX());
 	}
+	
+	@Test
+	public void testMoveRight() {
+		this.character.moveRight();
+		assertEquals(11, this.character.getX());
+	}
+	
+	@Test
+	public void testMoveUp() {
+		this.character.moveUp();
+		assertEquals(9, this.character.getY());
+	}
+	
+	@Test
+	public void testMoveDown() {
+		this.character.moveDown();
+		assertEquals(11, this.character.getY());
+	}
+	
+	@Test
+	public void testIsAlive() {
+		assertEquals(true, this.character.isAlive());
+	}
+	
+	
 
 }
