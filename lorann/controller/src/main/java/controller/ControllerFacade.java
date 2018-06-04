@@ -12,7 +12,7 @@ import view.IView;
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Charlotte Bénard
  * @version 1.0
  */
 public class ControllerFacade implements IController, IOrderPerformer {
@@ -44,11 +44,7 @@ public class ControllerFacade implements IController, IOrderPerformer {
     }
 
     /**
-     * Start.
-     *
-     * @throws SQLException
-     *             the SQL exception
-     * @throws InterruptedException 
+     * Starts the game
      */
     public void start() throws SQLException, InterruptedException, IOException {
         while(this.getModel().getMyCharacter().isAlive()) {
@@ -118,7 +114,8 @@ public class ControllerFacade implements IController, IOrderPerformer {
     
     /**
      * Stock the order.
-     *
+     * @param userOrder
+     *            the order
      * @return the model
      */
     public void performOrder(KeyEvent userOrder) {
@@ -136,7 +133,8 @@ public class ControllerFacade implements IController, IOrderPerformer {
 
 	/**
      * Set the order.
-     *
+     * @param stackOrder
+     *            the order
      * @return the model
      */
 	public void setStackOrder(KeyEvent stackOrder) {

@@ -8,64 +8,95 @@ import model.IMobile;
 import model.Permeability;
 import model.Sprite;
 
+/**
+ * <h1>The Class MobileMock imitates the Mobile class.</h1>
+ *
+ * @author Charlotte Bénard
+ * @version 1.0
+ */
 public class MobileMock implements IMobile {
 
+	/** The position */
 	private Point position;
-	private ILevel level;
-	private int lastX = 0;
-	private int lastY = 0;
 	
+	/** The level */
+	private ILevel level;
+	
+	/**
+     * Instantiates a new mobile mock
+     *
+     * @param x
+     *            the x coordinate
+     * @param y
+     *            the y coordinate
+     */
 	public MobileMock(int x, int y) {
 		this.position = new Point();
 		this.getPosition().x = x;
 		this.getPosition().y = y;
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#moveUp()
+     */
 	@Override
 	public boolean moveUp() {
 		if(this.setY(this.getY() - 1)) {
-			this.lastY = -1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#moveLeft()
+     */
 	@Override
 	public boolean moveLeft() {
 		if(this.setX(this.getX() - 1)) {
-			this.lastX = -1;
-			this.lastY = 0;
 			return true;
 		}
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#moveDown()
+     */
 	@Override
 	public boolean moveDown() {
 		if(this.setY(this.getY() + 1)) {
-			this.lastY = 1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#moveRight()
+     */
 	@Override
 	public boolean moveRight() {
 		if(this.setX(this.getX() + 1)) {
-			this.lastX = 1;
-			this.lastY = 0;
 			return true;
 		}
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#getX()
+     */
 	@Override
 	public int getX() {
 		return this.getPosition().x;
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#setX()
+     */
 	public boolean setX(int x) {
 		if (!this.isOnWall(x, this.getY())) {
 			this.getPosition().x = x;
@@ -74,11 +105,19 @@ public class MobileMock implements IMobile {
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#getY()
+     */
 	@Override
 	public int getY() {
 		return this.getPosition().y;
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#setY()
+     */
 	public boolean setY(int y) {
 		if (!this.isOnWall(this.getX(), y)) {
 			this.getPosition().y = y;
@@ -87,35 +126,51 @@ public class MobileMock implements IMobile {
 		return false;
 	}
 	
-	public void initX(int x) {
-		this.getPosition().x = x;
-	}
-	
-	public void initY(int y) {
-		this.getPosition().y = y;
-	}
-
+	/*
+     * (non-Javadoc)
+     * @see model.element.Mobile#isOnWall()
+     */
 	public boolean isOnWall(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.BLOCKING);
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#isHit()
+     */
 	@Override
 	public boolean isHit(int newX, int newY) {
 		return (this.getLevel().getOnTheLevelXY(newX, newY).getPermeability() == Permeability.MONSTER);
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#getPosition()
+     */
 	@Override
 	public Point getPosition() {
 		return this.position;
 	}
 	
-	
+	/*
+     * (non-Javadoc)
+     * @see model.element.Mobile#getLevel()
+     */
 	protected ILevel getLevel() {
 		return this.level;
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#shoot()
+     */
+	@Override
 	public void shoot() {}
 	
+	/*
+     * (non-Javadoc)
+     * @see model.element.Mobile#setPosition()
+     */
 	public boolean setPosition(int x, int y) {
 		if(this.getLevel().getOnTheLevelXY(x, y).getPermeability() != Permeability.BLOCKING) {
 			this.getPosition().x = x;
@@ -125,42 +180,71 @@ public class MobileMock implements IMobile {
 		return false;
 	}
 	
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#move()
+     */
+	@Override
 	public void move() {}
 
-	@Override
-	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#doNothing()
+     */
 	@Override
 	public void doNothing() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#isAlive()
+     */
 	@Override
 	public boolean isAlive() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/*
+     * (non-Javadoc)
+     * @see contract.model.IMobile#collect()
+     */
 	@Override
 	public int collect() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	/*
+     * (non-Javadoc)
+     * @see model.element.Element#getSprite()
+     */
+	@Override
+	public Sprite getSprite() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+     * (non-Javadoc)
+     * @see model.element.Element#getPermeability()
+     */
+	@Override
+	public Permeability getPermeability() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+     * (non-Javadoc)
+     * @see model.element.Element#getImage()
+     */
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
