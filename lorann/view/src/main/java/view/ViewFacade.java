@@ -51,12 +51,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     
     /** The door. */
     private IMobile door;
+    
+    /** The spell. */
+    private IMobile spell;
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) {
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
         try {
 			this.setLevel(level);
 		} catch (IOException e1) {
@@ -76,6 +79,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.monsters = monsters;
         this.energyBall = energyBall;
         this.door = door;
+        this.spell = spell;
     }
 
     /*
