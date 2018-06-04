@@ -41,6 +41,9 @@ public class ViewFacadeTest {
     /** The door. */
     private IMobile door;
     
+    /** The spell. */
+	private IMobile spell;
+    
     /** The view. */
 	private ViewFacade view;
 	
@@ -55,7 +58,7 @@ public class ViewFacadeTest {
 	public void setUp() throws Exception {
 		level = new LevelMock();
 		myCharacter = new MobileMock();
-		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door);
+		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door, spell);
 		fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
 	}
 

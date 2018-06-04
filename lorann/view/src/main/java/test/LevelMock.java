@@ -15,6 +15,7 @@ import model.IMobile;
  * @version 1.0
  */
 public class LevelMock implements ILevel{
+	
 	/*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
@@ -131,6 +132,16 @@ public class LevelMock implements ILevel{
      */
 	@Override
 	public IMobile getDoor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+     * (non-Javadoc)
+     * @see view.IView#displayMessage(java.lang.String)
+     */
+	@Override
+	public IMobile getSpell() {
 		// TODO Auto-generated method stub
 		return null;
 	}

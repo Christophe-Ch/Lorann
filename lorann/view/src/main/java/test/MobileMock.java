@@ -152,7 +152,17 @@ public class MobileMock implements IMobile {
      * @see view.IView#displayMessage(java.lang.String)
      */
 	@Override
-	public void shoot(int direction) {
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/*
+     * (non-Javadoc)
+     * @see view.IView#displayMessage(java.lang.String)
+     */
+	@Override
+	public void shoot() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -162,9 +172,9 @@ public class MobileMock implements IMobile {
      * @see view.IView#displayMessage(java.lang.String)
      */
 	@Override
-	public int collect() {
+	public void move() {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 	
 }
