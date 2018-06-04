@@ -10,9 +10,9 @@ import model.ModelFacade;
 import view.ViewFacade;
 
 /**
- * <h1>The Class Main.</h1>
+ * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
  * @version 1.0
  */
 public abstract class Main {
