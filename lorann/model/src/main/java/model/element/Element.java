@@ -6,6 +6,11 @@ import model.IElement;
 import model.Sprite;
 import model.Permeability;
 
+/**
+ * <h1>The Element class</h1>
+ * @author Christophe CHICHMANIAN
+ *
+ */
 public abstract class Element implements IElement {
 
 	/** The sprite. */
