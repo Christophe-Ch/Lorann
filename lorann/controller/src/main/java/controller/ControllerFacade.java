@@ -86,10 +86,13 @@ public class ControllerFacade implements IController, IOrderPerformer {
         	}
         	
         }
-        if(this.getModel().hasCharacterWon())
+        if(this.getModel().hasCharacterWon()) {
         	this.getView().displayMessage("You escaped !");
+        	System.exit(1);
+        }
         else
         	this.getView().displayMessage("You're dead..");
+        	System.exit(1);
     }
 
     /**

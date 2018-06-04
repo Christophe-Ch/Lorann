@@ -39,12 +39,16 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     /** The Constant fullView. */
     private Rectangle fullView;
     
+    /** The purses. */
     private IMobile[] purses;
     
+    /** The monsters. */
     private IMobile[] monsters;
     
+    /** The energy ball. */
     private IMobile energyBall;
     
+    /** The door. */
     private IMobile door;
 
 	/**
