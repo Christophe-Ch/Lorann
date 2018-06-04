@@ -59,22 +59,12 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException  {
-        this.setLevel(level);
-=======
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) {
-=======
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
         try {
 			this.setLevel(level);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-        
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
         this.setMyCharacter(myCharacter);
         try {
 			this.getMyCharacter().getSprite().loadImage();
