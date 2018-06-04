@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,11 +14,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * <h1>The Class ViewFacade provides a facade of the View component.</h1>
+ *
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @version 1.0
+ */
 public class Menu {
 	
+	/** The level choose. */
 	public int level;
+	
+	/** The boolean choice. */
 	public boolean choix = false;
 	
+	/**
+     * Instantiates a new menu.
+     * 
+     */
 	public Menu() {
 
 		JFrame frame = new JFrame("Lorann Launcher");

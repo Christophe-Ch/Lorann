@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.awt.Button;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,11 +13,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import controller.ControllerFacade;
+import model.IMobile;
+import model.IModel;
+import view.IView;
+
 
 public class ControllerTest {
-	private ControllerMock controller;
-	private ViewMock view = new ViewMock();
-	private ModelMock model = new ModelMock();
+	private ControllerFacade controller;
+	private IView view = new ViewMock();
+	private IModel model = new ModelMock();
+	private IMobile myCharacter = new MobileMock(10, 10);
 
 
 	@BeforeClass
@@ -28,7 +36,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.controller = new ControllerMock(view, model);
+		this.controller = new ControllerFacade (view, model);
 	}
 
 	@After
@@ -70,6 +78,14 @@ public class ControllerTest {
 		KeyEvent keyEvent = new KeyEvent(new Button(), 0, 0, 0, KeyEvent.VK_RIGHT);
 		this.controller.setStackOrder(keyEvent);
 		assertEquals(keyEvent, this.controller.getStackOrder());
+	}
+	
+	@Test
+	public void testStart() throws SQLException, InterruptedException, IOException {
+		KeyEvent keyEvent = new KeyEvent(new Button(), 0, 0, 0, KeyEvent.VK_RIGHT);
+		this.controller.setStackOrder(keyEvent);
+		this.controller.start();
+		assertEquals(11, this.myCharacter.getX());
 	}
 	
 

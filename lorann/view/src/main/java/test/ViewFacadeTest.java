@@ -15,6 +15,12 @@ import model.ILevel;
 import model.IMobile;
 import view.ViewFacade;
 
+/**
+ * <h1>The Class ViewFacade provides a facade of the View component.</h1>
+ *
+ * @author Corentin Hangard
+ * @version 1.0
+ */
 public class ViewFacadeTest {
 	
 	/** The Level. */
@@ -35,6 +41,9 @@ public class ViewFacadeTest {
     /** The door. */
     private IMobile door;
     
+    /** The spell. */
+	private IMobile spell;
+    
     /** The view. */
 	private ViewFacade view;
 	
@@ -42,28 +51,28 @@ public class ViewFacadeTest {
 	private Rectangle fullView;
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Set up the test.
+     * 
      */
 	@Before
 	public void setUp() throws Exception {
 		level = new LevelMock();
 		myCharacter = new MobileMock();
-		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door);
+		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door, spell);
 		fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * 
+     * 
      */
 	@After
 	public void tearDown() throws Exception {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the level.
+     * 
      */
 	@Test
 	public void testGetLevel() {
@@ -71,8 +80,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the level.
+     * 
      */
 	@Test
 	public void testSetLevel() throws IOException {
@@ -82,8 +91,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the character.
+     * 
      */
 	@Test
 	public void testGetMyCharacter() {
@@ -91,8 +100,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the character.
+     * 
      */
 	@Test
 	public void testSetMyCharacter() {
@@ -102,8 +111,8 @@ public class ViewFacadeTest {
 	}
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the orderPerformer.
+     * 
      */
 	@Test
 	public void testSetOrderPerformer() {
@@ -113,8 +122,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the fullView.
+     * 
      */
 	@Test
 	public void testGetFullView() {
@@ -122,8 +131,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the fullView.
+     * 
      */
 	@Test
 	public void testSetFullView() {
