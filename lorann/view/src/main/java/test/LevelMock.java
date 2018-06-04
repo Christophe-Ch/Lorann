@@ -2,29 +2,16 @@
 package test;
 
 import java.awt.Point;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Observable;
 
 import model.IElement;
 import model.ILevel;
 import model.IMobile;
 
-<<<<<<< HEAD
-public class LevelMock extends Observable implements ILevel{
-
-	
-	public LevelMock(int level) {
-		super();
-		
-	}
-	
-	
-=======
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte BÃ©nard & FranÃ§ois Mouton
  * @version 1.0
  */
 public class LevelMock implements ILevel{
@@ -32,7 +19,6 @@ public class LevelMock implements ILevel{
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
      */
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	@Override
 	public int getWidth() {
 		// TODO Auto-generated method stub
