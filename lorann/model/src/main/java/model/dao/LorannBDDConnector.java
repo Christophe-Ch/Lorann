@@ -21,7 +21,7 @@ final class LorannBDDConnector {
     private static String                  user     = "root";
 
     /** The password. */
-    private static String                  password = "passwd";
+    private static String                  password = "MySQL";
 
     /** The url. */
     private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
