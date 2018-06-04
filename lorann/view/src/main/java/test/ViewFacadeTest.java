@@ -51,8 +51,8 @@ public class ViewFacadeTest {
 	private Rectangle fullView;
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Set up the test.
+     * 
      */
 	@Before
 	public void setUp() throws Exception {
@@ -63,16 +63,16 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * 
+     * 
      */
 	@After
 	public void tearDown() throws Exception {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the level.
+     * 
      */
 	@Test
 	public void testGetLevel() {
@@ -80,8 +80,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the level.
+     * 
      */
 	@Test
 	public void testSetLevel() throws IOException {
@@ -91,8 +91,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the character.
+     * 
      */
 	@Test
 	public void testGetMyCharacter() {
@@ -100,8 +100,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the character.
+     * 
      */
 	@Test
 	public void testSetMyCharacter() {
@@ -111,8 +111,8 @@ public class ViewFacadeTest {
 	}
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the orderPerformer.
+     * 
      */
 	@Test
 	public void testSetOrderPerformer() {
@@ -122,8 +122,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to get the fullView.
+     * 
      */
 	@Test
 	public void testGetFullView() {
@@ -131,8 +131,8 @@ public class ViewFacadeTest {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Test to set the fullView.
+     * 
      */
 	@Test
 	public void testSetFullView() {

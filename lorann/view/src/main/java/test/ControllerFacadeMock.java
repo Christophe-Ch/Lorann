@@ -13,8 +13,8 @@ import controller.IOrderPerformer;
 public class ControllerFacadeMock implements IOrderPerformer{
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void performOrder(KeyEvent userOrder) {
