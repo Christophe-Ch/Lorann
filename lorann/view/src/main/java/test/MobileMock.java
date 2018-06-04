@@ -12,7 +12,7 @@ import model.Sprite;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte BÃ©nard & FranÃ§ois Mouton
  * @version 1.0
  */
 public class MobileMock implements IMobile {
@@ -137,52 +137,24 @@ public class MobileMock implements IMobile {
 		return false;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public boolean isOnDoor(int newX, int newY) {
-=======
-=======
 	/*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
      */
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	@Override
 	public Point getPosition() {
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public boolean isOnKey(int newX, int newY) {
-=======
-=======
 	/*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
      */
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	@Override
 	public void shoot(int direction) {
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		return false;
-	}
-
-	public boolean isOnWall(int newX, int newY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean isOnPurse(int newX, int newY) {
-		// TODO Auto-generated method stub
-		return false;
-=======
 		
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	}
 
 	/*
