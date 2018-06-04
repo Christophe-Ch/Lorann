@@ -31,7 +31,7 @@ public abstract class Main {
     	while (menu.choix == false)
 			Thread.sleep(10);
     	final IModel model = new ModelFacade(menu.level);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), model.getSpell());
         final IController controller = new ControllerFacade(view, model);
         
         view.setOrderPerformer(controller.getOrderPerformer());

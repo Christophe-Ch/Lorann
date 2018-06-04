@@ -7,6 +7,7 @@ import model.ILevel;
 import model.IMobile;
 import model.Permeability;
 import model.Sprite;
+import model.element.mobile.auto.Spell;
 
 public class MyCharacter extends Mobile{
 	
@@ -23,6 +24,7 @@ public class MyCharacter extends Mobile{
 	private ArrayList<IMobile> monsters;
 	private IMobile energyBall;
 	private IMobile door;
+	private IMobile spell;
 	
 	private int score = 0;
 	private boolean hasTheKey = false;
@@ -64,6 +66,8 @@ public class MyCharacter extends Mobile{
 	public void doNothing() {
 		
 		if(isHit(this.getX(), this.getY())) {this.die();}
+		else if(this.isOnSpell(this.getX(), this.getY())) 
+			this.spell.collect();
 		
 		int index = 0;
 		for(int i = 0; i < sprites.length; i++) {
@@ -81,11 +85,24 @@ public class MyCharacter extends Mobile{
 	}
 	
 	public void specialCase(int x, int y) {
-		if(isHit(this.getX(), this.getY())) {this.die();}
-		else if(this.isOnKey(x, this.getY())) {}
-		else if(this.isOnDoor(x, this.getY())) {}
-		else if(this.isHit(x, this.getY())) {}
+		if(isHit(this.getX(), this.getY()))
+			this.die();
+		else if(this.isOnKey(x, this.getY())) {
+			energyBall.collect();
+			hasTheKey = true;
+			door.collect();
+			System.out.println("Key found");
+		}
+		else if(this.isOnDoor(x, this.getY())) {
+			if(hasTheKey) {
+				this.won = true;
+				this.die();
+			}
+		}
 		else if(this.isOnPurse(x, this.getY())) {}
+		else if(this.isOnSpell(x, this.getY())) {
+			this.spell.collect();
+		}
 	}
 	
 	@Override
@@ -123,8 +140,7 @@ public class MyCharacter extends Mobile{
 	public boolean isOnPurse(int newX, int newY) {
 		for(IMobile purse : purses) {
 			if(purse.getX() == newX && purse.getY() == newY) {
-				score += purse.collect();
-				System.out.println("Score : " + score);
+				purse.collect();
 				return true;
 			}
 		}
@@ -133,26 +149,22 @@ public class MyCharacter extends Mobile{
 	}
 	
 	public boolean isOnKey(int newX, int newY) {
-		if(energyBall.getX() == newX && energyBall.getY() == newY) {
-			energyBall.collect();
-			hasTheKey = true;
-			door.collect();
-			System.out.println("Key found");
+		if(energyBall.getX() == newX && energyBall.getY() == newY)
 			return true;
-		}
 		
 		return false;
 	}
 	
 	public boolean isOnDoor(int newX, int newY) {
-		if(door.getX() == newX && door.getY() == newY) {
-			if(hasTheKey) {
-				this.won = true;
-				this.die();
-			}
+		if(door.getX() == newX && door.getY() == newY)
 			return true;
-		}
 		
+		return false;
+	}
+	
+	public boolean isOnSpell(int newX, int newY) {
+		if(spell.getX() == newX && spell.getY() == newY)
+			return true;
 		return false;
 	}
 	
@@ -170,6 +182,13 @@ public class MyCharacter extends Mobile{
 	
 	public void addDoor(IMobile door) {
 		this.door = door;
+	}
+	
+	public void addSpell(IMobile spell) {
+		this.spell = spell;
+		for (IMobile monster : monsters) {
+			((Spell)this.spell).addMonster(monster);
+		}
 	}
 
 	@Override
@@ -190,6 +209,13 @@ public class MyCharacter extends Mobile{
 			}
 		}
 		return false;
+	}
+	
+	public void shoot() {
+		if(!spell.isAlive()) {
+			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
+			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
+		}
 	}
 
 }

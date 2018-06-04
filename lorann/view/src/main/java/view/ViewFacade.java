@@ -51,6 +51,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     
     /** The door. */
     private IMobile door;
+    
+    private IMobile spell;
 
 	/**
      * Instantiates a new view facade.
@@ -76,6 +78,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.monsters = monsters;
         this.energyBall = energyBall;
         this.door = door;
+        this.spell = spell;
     }
 
     /*
@@ -137,9 +140,18 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			e.printStackTrace();
 		}
 		
+		try {
+			this.spell.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		boardFrame.addPawn(this.energyBall);
 		
 		boardFrame.addPawn(this.door);
+		
+		boardFrame.addPawn(this.spell);
         
 		boardFrame.addPawn(this.getMyCharacter());
 		
