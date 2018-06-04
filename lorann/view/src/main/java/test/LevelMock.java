@@ -17,8 +17,8 @@ import model.IMobile;
 public class LevelMock implements ILevel{
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public int getWidth() {
@@ -27,8 +27,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public int getHeight() {
@@ -37,8 +37,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IElement getOnTheLevelXY(int x, int y) {
@@ -47,8 +47,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void setOnTheLevelXY(int x, int y, IElement element) {
@@ -57,8 +57,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
@@ -67,8 +67,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Observable getObservable() {
@@ -77,8 +77,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void setElementHasChanged() {
@@ -87,8 +87,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Point getCharacterPosition() {
@@ -97,8 +97,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IMobile[] getPurses() {
@@ -107,8 +107,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IMobile[] getMonsters() {
@@ -117,8 +117,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IMobile getEnergyBall() {
@@ -127,8 +127,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IMobile getDoor() {
@@ -137,8 +137,8 @@ public class LevelMock implements ILevel{
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public IMobile getSpell() {

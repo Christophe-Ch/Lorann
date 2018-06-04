@@ -18,8 +18,8 @@ import model.Sprite;
 public class MobileMock implements IMobile {
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Sprite getSprite() {
@@ -28,8 +28,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Permeability getPermeability() {
@@ -38,8 +38,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Image getImage() {
@@ -48,8 +48,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean moveUp() {
@@ -58,8 +58,8 @@ public class MobileMock implements IMobile {
 	}
 	
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean moveLeft() {
@@ -68,8 +68,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean moveDown() {
@@ -78,8 +78,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean moveRight() {
@@ -88,8 +88,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void doNothing() {
@@ -98,8 +98,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public int getX() {
@@ -108,8 +108,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public int getY() {
@@ -118,8 +118,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean isAlive() {
@@ -128,8 +128,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public boolean isHit(int newX, int newY) {
@@ -138,8 +138,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public Point getPosition() {
@@ -148,8 +148,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public int collect() {
@@ -158,8 +158,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void shoot() {
@@ -168,8 +168,8 @@ public class MobileMock implements IMobile {
 	}
 
 	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * Override method.
+     * 
      */
 	@Override
 	public void move() {
