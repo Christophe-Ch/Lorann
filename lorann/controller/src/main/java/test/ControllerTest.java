@@ -7,10 +7,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import controller.ControllerFacade;

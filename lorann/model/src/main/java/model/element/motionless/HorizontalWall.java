@@ -16,7 +16,7 @@ public class HorizontalWall extends MotionlessElement{
     /**
      * Instantiates a new HorizontallWall
      */
-	HorizontalWall() {
+	public HorizontalWall() {
 		super(SPRITE, Permeability.BLOCKING);
 	}
 

@@ -2,48 +2,36 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.ILevel;
 import model.Level;
-import model.Sprite;
 import model.element.mobile.auto.FirstMonster;
-import model.element.mobile.auto.Spell;
 import model.element.motionless.HorizontalWall;
 
+/**
+ * <h1>The Class FirstMonsterTest tests the methods of the class FirstMonster.</h1>
+ *
+ * @author Charlotte Bénard
+ * @version 1.0
+ */
 public class FirstMonsterTest {
+	
+	/** Instantiates a new level */
 	private ILevel level = new Level(1);
+	
+	/** The monster */
 	private FirstMonster monster;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
+	/** Instantiates a new monster */
 	@Before
 	public void setUp() throws Exception {
 		this.monster = new FirstMonster(level, 9, 8);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testIsHit() throws IOException {
-		this.level.setOnTheLevelXY(9, 8, new Spell(level, 9, 8, new Sprite(' ')));
-		assertEquals(true, this.monster.isHit());
-	}
 	
+	/** Tests the move method */
 	@Test
 	public void testMove() {
 		level.setOnTheLevelXY(9, 7, new HorizontalWall());
@@ -55,6 +43,7 @@ public class FirstMonsterTest {
 		assertEquals(true, monster.moveUp());
 	}
 	
+	/** Tests the die method */
 	@Test
 	public void testDie() {
 		monster.die();
