@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -84,11 +85,13 @@ class BoardPanel extends JPanel implements Observer {
      */
     BoardPanel() {
         super();
+        
         this.pawns = new ArrayList<>();
         this.noImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics = this.noImage.createGraphics();
-        graphics.setColor(Color.darkGray);
+        graphics.setColor(Color.LIGHT_GRAY);
         graphics.fillRect(0, 0, 2, 2);
+        
     }
 
     /**

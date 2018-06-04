@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -55,10 +56,19 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
-        this.setLevel(level);
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) {
+        try {
+			this.setLevel(level);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+        
         this.setMyCharacter(myCharacter);
-        this.getMyCharacter().getSprite().loadImage();
+        try {
+			this.getMyCharacter().getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
         this.setFullView(new Rectangle(0, 0, this.getLevel().getWidth(), this.getLevel().getHeight()));
         SwingUtilities.invokeLater(this);
         
@@ -90,15 +100,12 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
-        //boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
                 boardFrame.addSquare(this.level.getOnTheLevelXY(x, y), x, y);
             }
         }
-		
-		// IPawn sprites loading
 		
 		for(IMobile purse : purses) {
 			try {
@@ -121,14 +128,12 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		try {
 			this.energyBall.getSprite().loadImage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
 			this.door.getSprite().loadImage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -137,7 +142,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		boardFrame.addPawn(this.door);
         
 		boardFrame.addPawn(this.getMyCharacter());
-
+		
+		
 
         this.getLevel().getObservable().addObserver(boardFrame.getObserver());
 
