@@ -18,6 +18,7 @@ public final class ModelFacade implements IModel {
 	private IMobile[] monsters;
 	private IMobile energyBall;
 	private IMobile door;
+	private IMobile spell;
 	
     /**
      * Instantiates a new model facade.
@@ -47,6 +48,9 @@ public final class ModelFacade implements IModel {
         
         door = this.getLevel().getDoor();
         ((MyCharacter)this.getMyCharacter()).addDoor(door);
+        
+        spell = this.getLevel().getSpell();
+        ((MyCharacter)this.getMyCharacter()).addSpell(spell);
     }
     
 	@Override
@@ -94,6 +98,11 @@ public final class ModelFacade implements IModel {
 	@Override
 	public boolean hasCharacterWon() {
 		return ((MyCharacter)this.getMyCharacter()).hasWon();
+	}
+
+	@Override
+	public IMobile getSpell() {
+		return this.spell;
 	}
 	
 }

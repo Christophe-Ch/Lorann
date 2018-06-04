@@ -46,12 +46,14 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     private IMobile energyBall;
     
     private IMobile door;
+    
+    private IMobile spell;
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) throws IOException {
         this.setLevel(level);
         this.setMyCharacter(myCharacter);
         this.getMyCharacter().getSprite().loadImage();
@@ -62,6 +64,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.monsters = monsters;
         this.energyBall = energyBall;
         this.door = door;
+        this.spell = spell;
     }
 
     /*
@@ -128,9 +131,18 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			e.printStackTrace();
 		}
 		
+		try {
+			this.spell.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		boardFrame.addPawn(this.energyBall);
 		
 		boardFrame.addPawn(this.door);
+		
+		boardFrame.addPawn(this.spell);
         
 		boardFrame.addPawn(this.getMyCharacter());
 

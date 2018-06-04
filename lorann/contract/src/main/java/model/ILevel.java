@@ -17,6 +17,6 @@ public interface ILevel {
 	IMobile[] getMonsters();
 	IMobile getEnergyBall();
 	IMobile getDoor();
-	
+	IMobile getSpell();
 
 }

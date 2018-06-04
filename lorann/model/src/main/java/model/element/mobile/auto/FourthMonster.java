@@ -19,12 +19,6 @@ public class FourthMonster extends Monster {
 	}
 
 	@Override
-	public int collect() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void move() {
 
 		Random random = new Random();
