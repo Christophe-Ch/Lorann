@@ -11,19 +11,54 @@ import model.element.mobile.Mobile;
 
 public class Spell extends Mobile{
 
+	/** First sprite of the spell */
 	private static Sprite first_sprite = new Sprite(' ', "fireball_1");
+	
+	/** Second sprite of the spell */
 	private static Sprite second_sprite = new Sprite(' ', "fireball_2");
+	
+	/** Third sprite of the spell */
 	private static Sprite third_sprite = new Sprite(' ', "fireball_3");
+	
+	/** Fourth sprite of the spell */
 	private static Sprite fourth_sprite = new Sprite(' ', "fireball_4");
+	
+	/** Fifth sprite of the spell */
 	private static Sprite fifth_sprite = new Sprite(' ', "fireball_5");
+	
+	/** Dead sprite of the spell */
 	private static Sprite dead_sprite;
 	
+	/** List of all the sprites of the spell */
 	private Sprite[] sprites;
 	
+	/** 
+	 * The direction of the spell
+	 * Possible values :
+	 * <ul>
+	 * <li>1 : Up</li>
+	 * <li>2 : Down</li>
+	 * <li>3 : Right</li>
+	 * <li>4 : Left</li>
+	 * </ul>
+	 */
 	private int direction;
 	
+	/** List of all the monsters */
 	private ArrayList<IMobile> monsters;
 	
+	/**
+	 * Instantiates a new spell
+	 * @param level
+	 * 		The level in which the spell stands
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 * @param deadSprite
+	 * 		Sprite of the element at position (x:0; y:0)
+	 * @throws IOException
+	 */
 	public Spell(ILevel level, int x, int y, Sprite deadSprite) throws IOException {
 		super(deadSprite, Permeability.SPELL, level, x, y);
 		this.dead_sprite = deadSprite;
@@ -48,6 +83,7 @@ public class Spell extends Mobile{
 		monsters = new ArrayList<>();
 	}
 	
+	@Override
 	public void move() {
 		if(this.isAlive()) {
 			
@@ -122,6 +158,15 @@ public class Spell extends Mobile{
 		this.getPosition().y = 0;
 	}
 	
+	/**
+	 * Makes the spell spawn
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 * @param direction
+	 * 		Direction of the spell
+	 */
 	public void spawn(int x, int y, int direction) {
 		if(this.setPosition(x, y))
 		{
@@ -130,6 +175,11 @@ public class Spell extends Mobile{
 			this.revive();		}
 	}
 
+	/**
+	 * Adds a monster
+	 * @param monster
+	 * 		Monster to add
+	 */
 	public void addMonster(IMobile monster) {
 		this.monsters.add(monster);
 	}

@@ -3,12 +3,22 @@ package model.element.mobile.auto;
 import model.ILevel;
 import model.Sprite;
 
+/**
+ * The FirstMonster class
+ * @author Christophe CHICHMANIAN
+ *
+ */
 public class FirstMonster extends Monster {
 	
+	/** Sprite of the monster */
 	private static Sprite sprite = new Sprite('M', "monster_1");
 	
+	/** Boolean value that indicates wheter the monster has to go up or down */
 	public boolean goingUp = true;
 
+	/**
+	 * @see Monster constructor
+	 */
 	public FirstMonster(ILevel level, int x, int y) {
 		super(sprite, level, x, y);
 	}
