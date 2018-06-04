@@ -19,12 +19,6 @@ public class FirstMonster extends Monster {
 	}
 
 	@Override
-	public int collect() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void move() {
 		if(this.goingUp) {
 			if(!this.moveUp()) {

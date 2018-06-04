@@ -20,7 +20,7 @@ import model.IMobile;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bï¿½nard & Franï¿½ois Mouton
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
@@ -141,9 +141,18 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			e.printStackTrace();
 		}
 		
+		try {
+			this.spell.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		boardFrame.addPawn(this.energyBall);
 		
 		boardFrame.addPawn(this.door);
+		
+		boardFrame.addPawn(this.spell);
         
 		boardFrame.addPawn(this.getMyCharacter());
 		

@@ -7,7 +7,6 @@ import model.IMobile;
 import model.Permeability;
 import model.Sprite;
 import model.element.Element;
-import model.element.mobile.auto.Spell;
 
 public abstract class Mobile extends Element implements IMobile {
 	
@@ -15,8 +14,8 @@ public abstract class Mobile extends Element implements IMobile {
 	private boolean alive = true;
 	private ILevel level;
 	
-	private int lastX = 0;
-	private int lastY = 0;
+	protected int lastX = 0;
+	protected int lastY = 0;
 
 	public Mobile(Sprite sprite, Permeability permeability, ILevel level) {
 		this(sprite, permeability, level, 0, 0);
@@ -126,21 +125,33 @@ public abstract class Mobile extends Element implements IMobile {
 	public Point getPosition() {
 		return this.position;
 	}
-
-	@Override
-	public void shoot(int direction) {
-		int x = this.getX() - lastX;
-		int y = this.getY() - lastY;
-		this.level.setSpellOnTheLevelXY(x, y, new Spell(this.getLevel(), x, y, 1));
-	}
 	
 	public void die() {
 		this.alive = false;
+		System.out.println("Dead");
+		this.setHasMoved();
+	}
+	
+	public void revive() {
+		this.alive = true;
 		this.setHasMoved();
 	}
 	
 	protected ILevel getLevel() {
 		return this.level;
 	}
+	
+	public void shoot() {}
+	
+	public boolean setPosition(int x, int y) {
+		if(this.getLevel().getOnTheLevelXY(x, y).getPermeability() != Permeability.BLOCKING) {
+			this.getPosition().x = x;
+			this.getPosition().y = y;
+			return true;
+		}
+		return false;
+	}
+	
+	public void move() {}
 
 }

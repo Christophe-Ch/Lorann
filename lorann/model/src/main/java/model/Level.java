@@ -10,6 +10,7 @@ import model.dao.LorannDAO;
 import model.element.mobile.auto.FirstMonster;
 import model.element.mobile.auto.FourthMonster;
 import model.element.mobile.auto.SecondMonster;
+import model.element.mobile.auto.Spell;
 import model.element.mobile.auto.ThirdMonster;
 import model.element.mobile.collectible.Door;
 import model.element.mobile.collectible.EnergyBall;
@@ -32,6 +33,8 @@ public class Level extends Observable implements ILevel {
 	private IMobile energyBall;
 	
 	private IMobile door;
+	
+	private IMobile spell;
 	
 	public Level(int level) {
 		super();
@@ -125,6 +128,8 @@ public class Level extends Observable implements ILevel {
 			}
 		}
 		
+		this.spell = new Spell(this, 0, 0, this.getOnTheLevelXY(0, 0).getSprite());
+		
 	}
 
 	@Override
@@ -168,6 +173,10 @@ public class Level extends Observable implements ILevel {
 	
 	public IMobile getDoor() {
 		return door;
+	}
+	
+	public IMobile getSpell() {
+		return spell;
 	}
 	
 	

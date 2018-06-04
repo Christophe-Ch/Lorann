@@ -20,5 +20,7 @@ public interface IModel {
 	
 	IMobile getDoor();
 	
+	IMobile getSpell();
+	
 	boolean hasCharacterWon();
 }
