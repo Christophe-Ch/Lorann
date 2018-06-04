@@ -20,7 +20,7 @@ import model.IMobile;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte B�nard & Fran�ois Mouton
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
@@ -35,7 +35,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	private IOrderPerformer orderPerformer;
 	
 	/** The Constant squareSize. */
-    private static final int squareSize = 32;
+    private static final int squareSize = 64;
 
     /** The Constant fullView. */
     private Rectangle fullView;
@@ -52,6 +52,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     /** The door. */
     private IMobile door;
     
+    /** The spell. */
     private IMobile spell;
 
 	/**
@@ -59,10 +60,14 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	 * @throws IOException 
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException  {
         this.setLevel(level);
 =======
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) {
+=======
+    public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
+>>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
         try {
 			this.setLevel(level);
 		} catch (IOException e1) {
