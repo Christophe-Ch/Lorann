@@ -16,7 +16,8 @@ public interface IMobile extends IElement, IPawn{
 	boolean isAlive();
 	boolean isHit(int newX, int newY);
 	Point getPosition();
-	void shoot(int direction);
+	void shoot();
 	int collect();
+	void move();
 
 }

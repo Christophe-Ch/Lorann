@@ -13,13 +13,13 @@ import org.junit.Test;
 import model.ILevel;
 import model.Level;
 import model.Sprite;
-import model.element.mobile.auto.FirstMonster;
+import model.element.mobile.auto.SecondMonster;
 import model.element.mobile.auto.Spell;
 import model.element.motionless.HorizontalWall;
 
-public class FirstMonsterTest {
+public class SecondMonsterTest {
 	private ILevel level = new Level(1);
-	private FirstMonster monster;
+	private SecondMonster monster;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -31,7 +31,7 @@ public class FirstMonsterTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.monster = new FirstMonster(level, 9, 8);
+		this.monster = new SecondMonster(level, 10, 10);
 	}
 
 	@After
@@ -40,19 +40,19 @@ public class FirstMonsterTest {
 
 	@Test
 	public void testIsHit() throws IOException {
-		this.level.setOnTheLevelXY(9, 8, new Spell(level, 9, 8, new Sprite(' ')));
+		this.level.setOnTheLevelXY(10, 10, new Spell(level, 10, 10, new Sprite(' ')));
 		assertEquals(true, this.monster.isHit());
 	}
 	
 	@Test
 	public void testMove() {
-		level.setOnTheLevelXY(9, 7, new HorizontalWall());
-		assertEquals(false, monster.moveUp());
+		level.setOnTheLevelXY(11, 10, new HorizontalWall());
+		assertEquals(false, monster.moveRight());
 		monster.move();
-		assertEquals(true, monster.moveDown());
-		level.setOnTheLevelXY(9, 10, new HorizontalWall());
+		assertEquals(true, monster.moveLeft());
+		level.setOnTheLevelXY(7, 10, new HorizontalWall());
 		monster.move();
-		assertEquals(true, monster.moveUp());
+		assertEquals(true, monster.moveRight());
 	}
 	
 	@Test

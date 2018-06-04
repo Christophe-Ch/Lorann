@@ -54,4 +54,11 @@ public final class ModelMock implements IModel {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public boolean hasCharacterWon() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

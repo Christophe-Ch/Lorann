@@ -54,8 +54,12 @@ public class ControllerFacade implements IController, IOrderPerformer {
         while(this.getModel().getMyCharacter().isAlive()) {
         	Thread.sleep(speed);
         	
+        	if(this.getModel().getSpell().isAlive())
+        		this.getModel().getSpell().move();
+        	
         	for(IMobile monster : this.getModel().getMonsters()) {
-        		((IMonster)monster).move();
+        		if(monster.isAlive())
+        			((IMonster)monster).move();
         	}
         	
         	if(this.getStackOrder() != null) {
@@ -73,7 +77,7 @@ public class ControllerFacade implements IController, IOrderPerformer {
         			this.getModel().getMyCharacter().moveDown();
         			break;
         		case KeyEvent.VK_SPACE:
-        			this.getModel().getMyCharacter().shoot(1);
+        			this.getModel().getMyCharacter().shoot();
         			break;
         		default:
         			this.getModel().getMyCharacter().doNothing();
@@ -84,12 +88,14 @@ public class ControllerFacade implements IController, IOrderPerformer {
         	else {
         		this.getModel().getMyCharacter().doNothing();
         	}
-        	
         }
-        if(this.getModel().hasCharacterWon())
+        if(this.getModel().hasCharacterWon()) {
         	this.getView().displayMessage("You escaped !");
+        	System.exit(1);
+        }
         else
         	this.getView().displayMessage("You're dead..");
+        	System.exit(1);
     }
 
     /**

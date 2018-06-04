@@ -8,6 +8,7 @@ import java.util.Observable;
 
 import model.IElement;
 import model.ILevel;
+import model.IMobile;
 
 public class LevelMock extends Observable implements ILevel{
 
@@ -37,18 +38,6 @@ public class LevelMock extends Observable implements ILevel{
 	}
 
 	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setElementHasChanged() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void setOnTheLevelXY(int x, int y, IElement element) {
 		// TODO Auto-generated method stub
 		
@@ -61,33 +50,45 @@ public class LevelMock extends Observable implements ILevel{
 	}
 
 	@Override
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setElementHasChanged() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public Point getCharacterPosition() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Point[] getPurses() {
+	public IMobile[] getPurses() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Point[] getMonsters() {
+	public IMobile[] getMonsters() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Point getEnergyBall() {
+	public IMobile getEnergyBall() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Point getDoor() {
+	public IMobile getDoor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
