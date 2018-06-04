@@ -3,10 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.awt.Rectangle;
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 import java.io.IOException;
 
 import org.junit.After;
@@ -21,13 +18,11 @@ import view.ViewFacade;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte BÃ©nard & FranÃ§ois Mouton
  * @version 1.0
  */
 public class ViewFacadeTest {
 	
-<<<<<<< HEAD
-=======
 	/** The Level. */
 	private ILevel level;
 	
@@ -47,21 +42,10 @@ public class ViewFacadeTest {
     private IMobile door;
     
     /** The view. */
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	private ViewFacade view;
-<<<<<<< HEAD
-	private ILevel level = new LevelMock(1);
-	private IMobile myCharacter = new MobileMock();
-	private Rectangle fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
-	private IMobile[] purses;
-    private IMobile[] monsters;
-    private IMobile energyBall;
-    private IMobile door;
-=======
 	
 	/** The Constant fullView. */
 	private Rectangle fullView;
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	
 	/*
      * (non-Javadoc)
@@ -69,14 +53,10 @@ public class ViewFacadeTest {
      */
 	@Before
 	public void setUp() throws Exception {
-<<<<<<< HEAD
-		this.view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door);
-=======
 		level = new LevelMock();
 		myCharacter = new MobileMock();
 		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door);
 		fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
 	}
 
 	/*
@@ -102,8 +82,9 @@ public class ViewFacadeTest {
      */
 	@Test
 	public void testSetLevel() throws IOException {
-		this.view.setLevel(this.level);
-		assertEquals(this.level, this.view.getLevel());
+		final ILevel expected = new LevelMock();
+		this.view.setLevel(expected);
+		assertEquals(expected, this.view.getLevel());
 	}
 
 	/*
@@ -121,8 +102,9 @@ public class ViewFacadeTest {
      */
 	@Test
 	public void testSetMyCharacter() {
-		this.view.setMyCharacter(this.myCharacter);
-		assertEquals(this.myCharacter, this.view.getMyCharacter());
+		final IMobile expected = new MobileMock();
+		this.view.setMyCharacter(expected);
+		assertEquals(expected, this.view.getMyCharacter());
 	}
 	
 	/*
@@ -151,8 +133,9 @@ public class ViewFacadeTest {
      */
 	@Test
 	public void testSetFullView() {
-		this.view.setFullView(this.fullView);
-		assertEquals(this.fullView, this.view.getFullView());
+		final Rectangle expected = new Rectangle(0, 0, level.getWidth(), level.getHeight());
+		this.view.setFullView(expected);
+		assertEquals(expected, this.view.getFullView());
 	}
 
 }
