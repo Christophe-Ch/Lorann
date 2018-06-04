@@ -18,7 +18,7 @@ import view.ViewFacade;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard
  * @version 1.0
  */
 public class ViewFacadeTest {

@@ -20,7 +20,7 @@ import model.IMobile;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte B�nard & Fran�ois Mouton
+ * @author Corentin Hangard
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
