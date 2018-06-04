@@ -20,8 +20,7 @@ public class Menu {
 	
 	public Menu() {
 
-		JFrame frame = new JFrame("JFrame Example");
-		
+		JFrame frame = new JFrame("Lorann Launcher");
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
