@@ -20,7 +20,7 @@ import model.IMobile;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
@@ -35,7 +35,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 	private IOrderPerformer orderPerformer;
 	
 	/** The Constant squareSize. */
-    private static final int squareSize = 32;
+    private static final int squareSize = 64;
 
     /** The Constant fullView. */
     private Rectangle fullView;
