@@ -57,7 +57,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Instantiates a new view facade.
-<<<<<<< HEAD
      * 
      * @param level
      * 		the level
@@ -73,9 +72,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      * 		the door
      * @param spell
      * 		the spell
-=======
 	 * 
->>>>>>> branch 'master' of https://github.com/ChriisX/Lorann
      */
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
         try {

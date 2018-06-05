@@ -1,4 +1,4 @@
-package test;
+package view;
 
 import java.awt.Image;
 import java.awt.Point;

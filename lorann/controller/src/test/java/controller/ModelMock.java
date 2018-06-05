@@ -1,5 +1,5 @@
 
-package test;
+package controller;
 
 import model.ILevel;
 import model.IMobile;

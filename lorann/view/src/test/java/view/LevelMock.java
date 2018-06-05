@@ -1,5 +1,5 @@
 
-package test;
+package view;
 
 import java.awt.Point;
 import java.util.Observable;
@@ -40,12 +40,6 @@ public class LevelMock implements ILevel{
 		
 	}
   
-	@Override
-	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	@Override
 	public Observable getObservable() {
 		// TODO Auto-generated method stub
