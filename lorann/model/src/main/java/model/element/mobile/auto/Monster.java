@@ -1,4 +1,4 @@
-package model.element.mobile.auto;
+=package model.element.mobile.auto;
 
 import java.io.IOException;
 
