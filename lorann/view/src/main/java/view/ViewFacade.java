@@ -57,7 +57,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Instantiates a new view facade.
-	 * @throws IOException 
+	 * 
      */
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
         try {
@@ -81,19 +81,11 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.spell = spell;
     }
 
-    /*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
     @Override
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
 	@Override
 	public void run() {
 		BoardFrame boardFrame = new BoardFrame("Lorann", false);
@@ -162,28 +154,16 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setVisible(true);
 	}
 
-	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
 	@Override
 	public void keyTyped(KeyEvent keyEvent) {
 		//NOP
 	}
 
-	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
 		this.getOrderPerformer().performOrder(keyEvent);
 	}
 
-	/*
-     * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
-     */
 	@Override
 	public void keyReleased(KeyEvent keyEvent) {
 		//NOP
