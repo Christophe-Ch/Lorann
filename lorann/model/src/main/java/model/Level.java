@@ -18,7 +18,7 @@ import model.element.mobile.collectible.Purse;
 import model.element.motionless.MotionlessElementFactory;
 
 /**
- * <h1>The Level class
+ * <h1>The Level class</h1>
  * 
  * @author Christophe CHICHMANIAN
  * @version 1.0
@@ -138,7 +138,9 @@ public class Level extends Observable implements ILevel {
 	 * @param level
 	 * 		ID of the level into the database
 	 * @throws SQLException
+	 * 		if the query fails
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	private void loadLevel(int level) throws SQLException, IOException {
 		String levelText = LorannDAO.chooseLevel(level);
@@ -200,6 +202,9 @@ public class Level extends Observable implements ILevel {
 	
 	/**
 	 * Sets the position of the character on the level
+	 * 
+	 * @param position
+	 * 		position of the character
 	 */
 	private void setCharacterPosition(Point position) {
 		this.characterPosition = position;

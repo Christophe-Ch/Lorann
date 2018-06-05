@@ -53,4 +53,5 @@
       </plugin>
     </plugins>
   </build>
+  <description>Provides the main class of the program, which is the entry point</description>
 </project>

@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard, Christophe Chichmanian, Charlotte Bénard, François Mouton
  * @version 1.0
  */
 public class Menu {

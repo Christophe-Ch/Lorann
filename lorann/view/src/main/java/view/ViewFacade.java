@@ -57,7 +57,21 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Instantiates a new view facade.
-	 * @throws IOException 
+     * 
+     * @param level
+     * 		the level
+     * @param myCharacter
+     * 		the character
+     * @param purses
+     * 		the list of all the purses
+     * @param monsters
+     * 		the list of all the monsters
+     * @param energyBall
+     * 		the key
+     * @param door
+     * 		the door
+     * @param spell
+     * 		the spell
      */
     public ViewFacade(ILevel level, IMobile myCharacter, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) {
         try {
@@ -191,6 +205,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Get the Level.
+     * 
+     * @return the level
      */
 	public ILevel getLevel() {
 		return this.level;
@@ -198,7 +214,12 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Set the Level.
-	 * @throws IOException 
+     * 
+     * @param level
+     * 		the level
+     * 
+	 * @throws IOException
+	 * 		if the image of the sprite doesn't exist
      */
 	public void setLevel(ILevel level) throws IOException {
 		this.level = level;
@@ -213,6 +234,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Get the Character.
+     * 
+     * @return the character
      */
 	public IMobile getMyCharacter() {
 		return this.myCharacter;
@@ -220,6 +243,9 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Set the Character.
+     * 
+     * @param myCharacter
+     * 		the character
      */
 	public void setMyCharacter(IMobile myCharacter) {
 		this.myCharacter = myCharacter;
@@ -227,6 +253,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Get the OrderPerformer.
+     * 
+     * @return the order performer
      */
 	public IOrderPerformer getOrderPerformer() {
 		return this.orderPerformer;
@@ -234,6 +262,9 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Set the OrderPerformer.
+     * 
+     * @param orderPerformer
+     * 		the order performer
      */
 	public void setOrderPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
@@ -241,6 +272,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Get the full view.
+     * 
+     * @return the full view rectangle
      */
 	public Rectangle getFullView() {
 		return this.fullView;
@@ -248,6 +281,9 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 
 	/**
      * Set the full view.
+     * 
+     * @param fullView
+     * 		the full view rectangle
      */
 	public void setFullView(Rectangle fullView) {
 		this.fullView = fullView;

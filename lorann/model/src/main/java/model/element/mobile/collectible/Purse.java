@@ -32,6 +32,7 @@ public class Purse extends Mobile {
 	 * @param level
 	 * 		The level in which the door stands
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	public Purse(int x, int y, ILevel level) throws IOException {
 		super(purseSprite, Permeability.COLLECTIBLE, level, x, y);

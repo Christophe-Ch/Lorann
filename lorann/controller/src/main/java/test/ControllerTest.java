@@ -36,7 +36,11 @@ public class ControllerTest {
 	private IMobile myCharacter = new MobileMock(10, 10);
 
 	
-	/** Instantiates a new controller facade */
+	/**
+	 * Instantiates a new controller facade
+	 * @throws Exception
+	 * 		if the instantiation fails
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.controller = new ControllerFacade (view, model);
@@ -85,9 +89,17 @@ public class ControllerTest {
 		assertEquals(keyEvent, this.controller.getStackOrder());
 	}
 	
-	/** Tests the start method */
+	/**
+	 * Tests the start method
+	 * @throws SQLException
+	 * 		if the request fails
+	 * @throws InterruptedException
+	 * 		for the start method
+	 * @throws IOException
+	 * 		for the start method
+	 */
 	@Test
-	public void testStart() throws SQLException, InterruptedException, IOException {
+	public void testStart() throws SQLException, IOException, InterruptedException {
 		KeyEvent keyEvent = new KeyEvent(new Button(), 0, 0, 0, KeyEvent.VK_RIGHT);
 		this.controller.setStackOrder(keyEvent);
 		this.controller.start();

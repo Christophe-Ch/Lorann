@@ -76,6 +76,7 @@ public class MyCharacter extends Mobile{
 	 * @param level
 	 * 		The level in which the character stands
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	public MyCharacter(int x, int y, ILevel level) throws IOException {
 		super(lorann_r, Permeability.BLOCKING, level);
@@ -193,6 +194,7 @@ public class MyCharacter extends Mobile{
 	 * 		X coordinate
 	 * @param newY
 	 * 		Y coordinate
+	 * @return whether the player is on a purse or not
 	 */
 	public boolean isOnPurse(int newX, int newY) {
 		for(IMobile purse : purses) {
@@ -211,6 +213,7 @@ public class MyCharacter extends Mobile{
 	 * 		X coordinate
 	 * @param newY
 	 * 		Y coordinate
+	 * @return whether the player is on the key or not
 	 */
 	public boolean isOnKey(int newX, int newY) {
 		if(energyBall.getX() == newX && energyBall.getY() == newY)
@@ -225,6 +228,7 @@ public class MyCharacter extends Mobile{
 	 * 		X coordinate
 	 * @param newY
 	 * 		Y coordinate
+	 * @return whether the player is on the door or not
 	 */
 	public boolean isOnDoor(int newX, int newY) {
 		if(door.getX() == newX && door.getY() == newY)
@@ -239,6 +243,7 @@ public class MyCharacter extends Mobile{
 	 * 		X coordinate
 	 * @param newY
 	 * 		Y coordinate
+	 * @return whether the player is on the spell or not
 	 */
 	public boolean isOnSpell(int newX, int newY) {
 		if(spell.getX() == newX && spell.getY() == newY)
@@ -302,6 +307,7 @@ public class MyCharacter extends Mobile{
 	
 	/**
 	 * Gets if the player has won
+	 * @return whether the player has won or not
 	 */
 	public boolean hasWon() {
 		return this.won;

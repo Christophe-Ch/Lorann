@@ -31,27 +31,42 @@ public abstract class MotionlessElementFactory {
 			verticalwall
 	};
 	
-	/** Gets the instance of the CornerWall */
+	/** 
+	 * Gets the instance of the CornerWall
+	 * @return the instance of the CornerWall
+	 */
 	public static MotionlessElement createCornerWall() {
 		return cornerwall;
 	}
 	
-	/** Gets the instance of the Floor */
+	/** 
+	 * Gets the instance of the Floor
+	 * @return the instance of the Floor
+	 */
 	public static MotionlessElement createFloor() {
 		return floor;
 	}
 	
-	/** Gets the instance of the HorizontalWall */
+	/** 
+	 * Gets the instance of the HorizontalWall
+	 * @return the instance of the HorizontalWall
+	 */
 	public static MotionlessElement createHorizontalWall() {
 		return horizontalwall;
 	}
 	
-	/** Gets the instance of the OpenedDoor */
+	/** 
+	 * Gets the instance of the OpenedDoor
+	 * @return the instance of the OpenedDoor
+	 */
 	public static MotionlessElement createOpenedDoor() {
 		return openeddoor;
 	}
 	
-	/** Gets the instance of the VerticalWall */
+	/** 
+	 * Gets the instance of the VerticalWall
+	 * @return the instance of the VerticalWall
+	 */
 	public static MotionlessElement createVerticalWall() {
 		return verticalwall;
 	}

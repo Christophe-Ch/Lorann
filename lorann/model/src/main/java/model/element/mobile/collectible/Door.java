@@ -29,6 +29,7 @@ public class Door extends Mobile {
 	 * @param level
 	 * 		The level in which the door stands
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	public Door(int x, int y, ILevel level) throws IOException {
 		super(closed, Permeability.COLLECTIBLE, level, x, y);

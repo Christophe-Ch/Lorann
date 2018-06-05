@@ -22,7 +22,12 @@ public class MyCharacterTest {
 	/** The level */
 	private ILevel level;
 
-	/** Instantiates a new character */
+	/**
+	 *  Instantiates a new character 
+	 * 
+	 * @throws Exception
+	 * 		if the instantiation fails
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.character = new MyCharacter(10, 10, level);

@@ -12,7 +12,7 @@ import view.ViewFacade;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Corentin Hangard & Christophe Chichmanian & Charlotte Bénard & François Mouton
+ * @author Corentin Hangard, Christophe Chichmanian, Charlotte Bénard, François Mouton
  * @version 1.0
  */
 public abstract class Main {
@@ -22,9 +22,12 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
-     * @throws InterruptedException 
+     * @throws InterruptedException
+     * 		for the sleep method and the start method
      * @throws IOException 
+     * 		if the image of a sprite doesn't exist
      * @throws SQLException 
+     * 		if the sql query fails
      */
     public static void main(final String[] args) throws InterruptedException, IOException, SQLException {
     	final Menu menu = new Menu();

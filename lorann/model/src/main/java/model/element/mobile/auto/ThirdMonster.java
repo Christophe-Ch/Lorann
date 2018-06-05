@@ -17,6 +17,12 @@ public class ThirdMonster extends Monster {
 
 	/**
 	 * @see Monster constructor
+	 * @param level
+	 * 		the level
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
 	 */
 	public ThirdMonster(ILevel level, int x, int y) {
 		super(sprite, level, x, y);

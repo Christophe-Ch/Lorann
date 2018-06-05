@@ -58,6 +58,7 @@ public class Spell extends Mobile{
 	 * @param deadSprite
 	 * 		Sprite of the element at position (x:0; y:0)
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	public Spell(ILevel level, int x, int y, Sprite deadSprite) throws IOException {
 		super(deadSprite, Permeability.SPELL, level, x, y);

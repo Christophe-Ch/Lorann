@@ -29,6 +29,7 @@ public class EnergyBall extends Mobile {
 	 * @param level
 	 * 		The level in which the key stands
 	 * @throws IOException
+	 * 		if the image of a sprite doesn't exist
 	 */
 	public EnergyBall(int x, int y, ILevel level) throws IOException {
 		super(ballSprite, Permeability.COLLECTIBLE, level, x, y);

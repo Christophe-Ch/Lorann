@@ -23,7 +23,12 @@ public class DoorTest {
 	/** Instantiates a new level */
 	private ILevel level = new Level(1);
 
-	/** Instantiates a new door */
+	/** 
+	 * Instantiates a new door
+	 * 
+	 * @throws Exception
+	 * 		if the instantiation fails
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.door = new Door(10, 10, level);

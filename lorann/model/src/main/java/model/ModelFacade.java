@@ -35,8 +35,15 @@ public final class ModelFacade implements IModel {
 	
     /**
      * Instantiates a new model facade.
-     * @throws SQLException 
-     * @throws IOException 
+     * 
+     * @param level
+     * 		ID of the level into the database
+     * 
+     * @throws SQLException
+     * 		if the sql query fails
+     * 
+     * @throws IOException
+     * 		if the image of a sprite doesn't exist
      */
     public ModelFacade(int level) throws SQLException, IOException {
         super();
@@ -125,7 +132,7 @@ public final class ModelFacade implements IModel {
 
 	/**
 	 * Sets the list of all monsters
-	 * @param purses
+	 * @param monsters
 	 * 		List of all monsters
 	 */
 	public void setMonsters(IMobile[] monsters) {

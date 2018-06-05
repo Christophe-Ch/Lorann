@@ -24,7 +24,12 @@ public class ThirdMonsterTest {
 	/** The monster */
 	private ThirdMonster monster;
 
-	/** Instantiates a new monster */
+	/**
+	 *  Instantiates a new monster 
+	 * 
+	 * @throws Exception
+	 * 		if the instantiation fails
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.monster = new ThirdMonster(level, 10, 10);
