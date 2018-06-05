@@ -57,9 +57,16 @@ public class ViewFacadeTest {
 	@Before
 	public void setUp() throws Exception {
 		level = new LevelMock();
-		myCharacter = new MobileMock();
-		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door, spell);
+		myCharacter = new MyCharacterMock();
+		purses = new IMobile[1];
+		monsters = new IMobile[4];
+		energyBall = new EnergyBallMock();
+		door = new DoorMock();
+		spell = new SpellMock();
+		
 		fullView = new Rectangle(0, 0, level.getWidth(), level.getHeight());
+		
+		view = new ViewFacade(level, myCharacter, purses, monsters, energyBall, door, spell);
 	}
 
 	/*
@@ -105,7 +112,7 @@ public class ViewFacadeTest {
      */
 	@Test
 	public void testSetMyCharacter() {
-		final IMobile expected = new MobileMock();
+		final IMobile expected = new MyCharacterMock();
 		this.view.setMyCharacter(expected);
 		assertEquals(expected, this.view.getMyCharacter());
 	}
