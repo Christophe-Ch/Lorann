@@ -161,6 +161,7 @@ public class MyCharacter extends Mobile{
 		super.moveLeft();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_bl);
+		this.setHasMoved();
 		return true;
 	}
 	
@@ -169,6 +170,7 @@ public class MyCharacter extends Mobile{
 		super.moveRight();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ur);
+		this.setHasMoved();
 		return true;
 	}
 	
@@ -177,6 +179,7 @@ public class MyCharacter extends Mobile{
 		super.moveUp();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ul);
+		this.setHasMoved();
 		return true;
 	}
 	
@@ -185,6 +188,7 @@ public class MyCharacter extends Mobile{
 		super.moveDown();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_br);
+		this.setHasMoved();
 		return true;
 	}
 	
@@ -331,6 +335,7 @@ public class MyCharacter extends Mobile{
 			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
 			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
 		}
+		this.setHasMoved();
 	}
 
 }

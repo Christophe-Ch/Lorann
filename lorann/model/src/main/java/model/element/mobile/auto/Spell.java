@@ -88,6 +88,15 @@ public class Spell extends Mobile{
 	public void move() {
 		if(this.isAlive()) {
 			
+			for (IMobile monster : monsters) {
+				if(monster.getPosition().getX() == this.getX() && monster.getPosition().getY() == this.getY() && monster.isAlive())
+				{
+					monster.collect();
+					this.collect();
+					return;
+				}
+			}
+			
 			switch (direction) {
 				case 1: // Up
 					if(!moveUp()) {
@@ -128,7 +137,7 @@ public class Spell extends Mobile{
 				this.setSprite(sprites[0]);
 			
 			for (IMobile monster : monsters) {
-				if(monster.getPosition().getX() == this.getX() && monster.getPosition().getY() == this.getY())
+				if(monster.getPosition().getX() == this.getX() && monster.getPosition().getY() == this.getY() && monster.isAlive())
 				{
 					monster.collect();
 					this.collect();
