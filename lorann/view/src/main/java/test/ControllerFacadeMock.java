@@ -12,10 +12,6 @@ import controller.IOrderPerformer;
  */
 public class ControllerFacadeMock implements IOrderPerformer{
 
-	/*
-     * Override method.
-     * 
-     */
 	@Override
 	public void performOrder(KeyEvent userOrder) {
 		// TODO Auto-generated method stub
