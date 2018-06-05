@@ -89,22 +89,5 @@ public class ControllerTest {
 		assertEquals(keyEvent, this.controller.getStackOrder());
 	}
 	
-	/**
-	 * Tests the start method
-	 * @throws SQLException
-	 * 		if the request fails
-	 * @throws InterruptedException
-	 * 		for the start method
-	 * @throws IOException
-	 * 		for the start method
-	 */
-	@Test
-	public void testStart() throws SQLException, IOException, InterruptedException {
-		KeyEvent keyEvent = new KeyEvent(new Button(), 0, 0, 0, KeyEvent.VK_RIGHT);
-		this.controller.setStackOrder(keyEvent);
-		this.controller.start();
-		assertEquals(11, this.myCharacter.getX());
-	}
-	
 
 }

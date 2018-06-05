@@ -7,11 +7,16 @@ import model.Permeability;
 import model.Sprite;
 
 public abstract class ElementMock implements IElement{
+	
+	private Sprite sprite;
+	
+	public ElementMock() {
+		this.sprite = new Sprite(' ', "floor");
+	}
 
 	@Override
 	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sprite;
 	}
 
 	@Override

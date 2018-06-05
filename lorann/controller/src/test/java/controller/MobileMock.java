@@ -22,6 +22,9 @@ public class MobileMock implements IMobile {
 	/** The level */
 	private ILevel level;
 	
+	/** Is alive */
+	private boolean alive;
+	
 	/**
      * Instantiates a new mobile mock
      *
@@ -34,6 +37,7 @@ public class MobileMock implements IMobile {
 		this.position = new Point();
 		this.getPosition().x = x;
 		this.getPosition().y = y;
+		this.alive = true;
 	}
 	
 	/*
@@ -204,7 +208,7 @@ public class MobileMock implements IMobile {
 	@Override
 	public boolean isAlive() {
 		// TODO Auto-generated method stub
-		return false;
+		return this.alive;
 	}
 
 	/*
@@ -245,6 +249,10 @@ public class MobileMock implements IMobile {
 	public Image getImage() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void die() {
+		this.alive = false;
 	}
 
 }

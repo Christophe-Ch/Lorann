@@ -12,6 +12,8 @@ import model.IModel;
  * @version 1.0
  */
 public final class ModelMock implements IModel {
+	
+	private MobileMock character = new MobileMock(0, 0);
 
 	/*
      * (non-Javadoc)
@@ -29,8 +31,7 @@ public final class ModelMock implements IModel {
      */
 	@Override
 	public IMobile getMyCharacter() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MobileMock(0, 0);
 	}
 
 	/*
