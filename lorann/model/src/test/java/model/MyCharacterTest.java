@@ -30,35 +30,39 @@ public class MyCharacterTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.character = new MyCharacter(10, 10, level);
+		this.level = new Level(1);
+		this.character = new MyCharacter(5, 5, level);
+		this.character.addEnergyBall(this.level.getEnergyBall());
+		this.character.addDoor(this.level.getDoor());
+		this.character.addSpell(this.level.getSpell());
 	}
 
 	/** Tests the moveLeft method */
 	@Test
 	public void testMoveLeft() {
 		this.character.moveLeft();
-		assertEquals(9, this.character.getX());
+		assertEquals(4, this.character.getX());
 	}
 	
 	/** Tests the moveRight method */
 	@Test
 	public void testMoveRight() {
 		this.character.moveRight();
-		assertEquals(11, this.character.getX());
+		assertEquals(6, this.character.getX());
 	}
 	
 	/** Tests the moveUp method */
 	@Test
 	public void testMoveUp() {
 		this.character.moveUp();
-		assertEquals(9, this.character.getY());
+		assertEquals(4, this.character.getY());
 	}
 	
 	/** Tests the moveDown method */
 	@Test
 	public void testMoveDown() {
 		this.character.moveDown();
-		assertEquals(11, this.character.getY());
+		assertEquals(6, this.character.getY());
 	}
 	
 	/** Tests the isAlive method */

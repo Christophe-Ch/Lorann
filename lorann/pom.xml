@@ -60,8 +60,8 @@
   </reporting>
   <distributionManagement>
     <site>
-      <id>insane_vehicles</id>
-      <url>file:///C:/temp/</url>
+      <id>lorann</id>
+      <url>file:///C:/users/chris/desktop/site</url>
     </site>
   </distributionManagement>
   <dependencies>
