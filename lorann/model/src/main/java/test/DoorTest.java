@@ -2,42 +2,44 @@ package test;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.ILevel;
 import model.Level;
-import model.Sprite;
 import model.element.mobile.collectible.Door;
 
+/**
+ * <h1>The Class DoorTest tests the methods of the class Door.</h1>
+ *
+ * @author Charlotte Bénard
+ * @version 1.0
+ */
 public class DoorTest {
+	
+	/** The door */
 	private Door door;
+	
+	/** Instantiates a new level */
 	private ILevel level = new Level(1);
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
+	/** Instantiates a new door */
 	@Before
 	public void setUp() throws Exception {
 		this.door = new Door(10, 10, level);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	/** Tests the die method */
 	@Test
 	public void testDie() {
 		this.door.die();
 		assertEquals(false, this.door.isAlive());
+	}
+	
+	@Test
+	public void testCollect() {
+		door.collect();
+		assertEquals(false, door.isAlive());
 	}
 
 }

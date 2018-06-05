@@ -17,25 +17,47 @@ import model.element.mobile.collectible.EnergyBall;
 import model.element.mobile.collectible.Purse;
 import model.element.motionless.MotionlessElementFactory;
 
+/**
+ * <h1>The Level class
+ * 
+ * @author Christophe CHICHMANIAN
+ * @version 1.0
+ */
 public class Level extends Observable implements ILevel {
 	
+	/** Constant width of the map */
 	private final int width = 20;
+	
+	/** Constant height of the map */
 	private final int height = 12;
 	
+	/** Array which contains all the elements of the level */
 	private IElement[][] onTheLevel;
 	
+	/** Position of the character */
 	private Point characterPosition;
 	
+	/** List of all purses */
 	private ArrayList<IMobile> purses;
 	
+	/** List of all monsters */
 	private ArrayList<IMobile> monsters;
 	
+	/** The key */
 	private IMobile energyBall;
 	
+	/** The door */
 	private IMobile door;
 	
+	/** The spell */
 	private IMobile spell;
 	
+	/** 
+	 * Instantiates a new Level object
+	 * 
+	 * @param level
+	 * 		The number of the level (ID field of the database)
+	 */
 	public Level(int level) {
 		super();
 		purses = new ArrayList<>();
@@ -49,31 +71,61 @@ public class Level extends Observable implements ILevel {
 		}
 	}
 
+	/**
+     * Gets the width.
+     */
 	@Override
 	public int getWidth() {
 		return this.width;
 	}
 
+	/**
+     * Gets the height.
+     */
 	@Override
 	public int getHeight() {
 		return this.height;
 	}
 
+	/**
+	 * Gets an element on the road
+	 * 
+	 * @param x
+	 * 		X coordinate
+	 * 
+	 * @param y
+	 * 		Y coordinate
+	 */
 	@Override
 	public IElement getOnTheLevelXY(int x, int y) {
 		return onTheLevel[x][y];
 	}
 	
+	/**
+	 * Puts an element on the road
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 * @param element
+	 * 		Element to put on the level
+	 */
 	@Override
 	public void setOnTheLevelXY(int x, int y, IElement element) {
 		this.onTheLevel[x][y] = element;
 	}
 
+	/**
+	 * Gets the observable object (this)
+	*/
 	@Override
 	public Observable getObservable() {
 		return this;
 	}
 
+	/**
+	 * Notifies observers an element has changed
+	 */
 	@Override
 	public void setElementHasChanged() {
 		this.setChanged();
@@ -81,6 +133,13 @@ public class Level extends Observable implements ILevel {
 
 	}
 	
+	/**
+	 * Loads the level from the database.
+	 * @param level
+	 * 		ID of the level into the database
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	private void loadLevel(int level) throws SQLException, IOException {
 		String levelText = LorannDAO.chooseLevel(level);
 		this.onTheLevel = new IElement[this.getWidth()][this.getHeight()];
@@ -131,26 +190,24 @@ public class Level extends Observable implements ILevel {
 		this.spell = new Spell(this, 0, 0, this.getOnTheLevelXY(0, 0).getSprite());
 		
 	}
-
-	@Override
-	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
-		if(this.getOnTheLevelXY(x, y).getPermeability() == Permeability.PENETRABLE) {
-			this.onTheLevel[x][y] = spell;
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 	
+	/**
+	 * Gets the position of the character on the level
+	 */
 	public Point getCharacterPosition() {
 		return this.characterPosition;
 	}
 	
+	/**
+	 * Sets the position of the character on the level
+	 */
 	private void setCharacterPosition(Point position) {
 		this.characterPosition = position;
 	}
 	
+	/**
+	 * Gets the list of all purses
+	 */
 	public IMobile[] getPurses() {
 		IMobile[] result = new IMobile[this.purses.size()];
 		for(int i = 0; i < result.length; i++) {
@@ -159,6 +216,9 @@ public class Level extends Observable implements ILevel {
 		return result;
 	}
 	
+	/**
+	 * Gets the list of all monsters
+	 */
 	public IMobile[] getMonsters() {
 		IMobile[] result = new IMobile[this.monsters.size()];
 		for(int i = 0; i < result.length; i++) {
@@ -167,14 +227,23 @@ public class Level extends Observable implements ILevel {
 		return result;
 	}
 	
+	/**
+	 * Gets the energy ball
+	 */
 	public IMobile getEnergyBall() {
 		return energyBall;
 	}
 	
+	/**
+	 * Gets the door
+	 */
 	public IMobile getDoor() {
 		return door;
 	}
 	
+	/**
+	 * Gets the spell
+	 */
 	public IMobile getSpell() {
 		return spell;
 	}

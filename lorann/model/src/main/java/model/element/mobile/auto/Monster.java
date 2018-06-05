@@ -8,10 +8,27 @@ import model.Permeability;
 import model.Sprite;
 import model.element.mobile.Mobile;
 
+/**
+ * The abstract Monster class
+ * @author Christophe CHICHMANIAN
+ *
+ */
 public abstract class Monster extends Mobile implements IMonster{
 	
+	/** Sprite of the monster when it's dead */
 	private static Sprite deadSprite = new Sprite('M', "floor");
 
+	/**
+	 * Instantiates a new Monster
+	 * @param sprite
+	 * 		Sprite of the monster
+	 * @param level
+	 * 		The level in which the monster stands
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 */
 	public Monster(Sprite sprite, ILevel level, int x, int y) {
 		super(sprite, Permeability.MONSTER, level, x, y);
 		try {
@@ -22,15 +39,10 @@ public abstract class Monster extends Mobile implements IMonster{
 		}
 	}
 	
-	public boolean isHit() {
-		if(this.getLevel().getOnTheLevelXY(this.getX(), this.getY()) instanceof Spell) {
-			return true;
-		}
-		return false;
-	}
-	
+	/** Defines a generic behavior for the monster's movement */
 	public abstract void move();
 	
+	/** Makes the monster die */
 	public int collect() {
 		this.die();
 		return 0;

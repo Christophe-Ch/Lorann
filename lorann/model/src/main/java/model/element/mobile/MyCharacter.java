@@ -9,30 +9,74 @@ import model.Permeability;
 import model.Sprite;
 import model.element.mobile.auto.Spell;
 
+/**
+ * The MyCharacter class
+ * @author Christophe CHICHMANIAN
+ *
+ */
 public class MyCharacter extends Mobile{
 	
+	/** Bottom sprite */
 	private static Sprite lorann_b = new Sprite(' ', "lorann_b");
+	
+	/** Bottom-left sprite */
 	private static Sprite lorann_bl = new Sprite(' ' ,"lorann_bl");
+	
+	/** Bottom-right sprite */
 	private static Sprite lorann_br = new Sprite(' ' ,"lorann_br");
+	
+	/** Left sprite */
 	private static Sprite lorann_l = new Sprite(' ' ,"lorann_l");
+	
+	/** Right sprite */
 	private static Sprite lorann_r = new Sprite(' ' ,"lorann_r");
+	
+	/** Up sprite */
 	private static Sprite lorann_u = new Sprite(' ' ,"lorann_u");
+	
+	/** Upper-left sprite */
 	private static Sprite lorann_ul = new Sprite(' ' ,"lorann_ul");
+	
+	/** Upper-right sprite */
 	private static Sprite lorann_ur = new Sprite(' ' ,"lorann_ur");
 	
+	/** List of all the purses */
 	private ArrayList<IMobile> purses;
+	
+	/** List of all the monsters */
 	private ArrayList<IMobile> monsters;
+	
+	/** The key */
 	private IMobile energyBall;
+	
+	/** The door */
 	private IMobile door;
+	
+	/** The spell */
 	private IMobile spell;
 	
+	/** The score */
 	private int score = 0;
+	
+	/** Boolean value that indicates if the player has the key */
 	private boolean hasTheKey = false;
 	
+	/** Boolean value that indicates if the player has won */
 	private boolean won = false;
 	
+	/** Array of all the sprites */
 	private static Sprite[] sprites;
 	
+	/**
+	 * Instantiates a MyCharacter object
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 * @param level
+	 * 		The level in which the character stands
+	 * @throws IOException
+	 */
 	public MyCharacter(int x, int y, ILevel level) throws IOException {
 		super(lorann_r, Permeability.BLOCKING, level);
 		
@@ -84,6 +128,13 @@ public class MyCharacter extends Mobile{
 		this.setHasMoved();
 	}
 	
+	/** 
+	 * Checks if something happens to the player (if he's hit by a monster, etc...)
+	 * @param x
+	 * 		X coordinate
+	 * @param y
+	 * 		Y coordinate
+	 */
 	public void specialCase(int x, int y) {
 		if(isHit(this.getX(), this.getY()))
 			this.die();
@@ -91,7 +142,6 @@ public class MyCharacter extends Mobile{
 			energyBall.collect();
 			hasTheKey = true;
 			door.collect();
-			System.out.println("Key found");
 		}
 		else if(this.isOnDoor(x, this.getY())) {
 			if(hasTheKey) {
@@ -137,6 +187,13 @@ public class MyCharacter extends Mobile{
 		return true;
 	}
 	
+	/**
+	 * Checks if the player is on a purse
+	 * @param newX
+	 * 		X coordinate
+	 * @param newY
+	 * 		Y coordinate
+	 */
 	public boolean isOnPurse(int newX, int newY) {
 		for(IMobile purse : purses) {
 			if(purse.getX() == newX && purse.getY() == newY) {
@@ -148,6 +205,13 @@ public class MyCharacter extends Mobile{
 		return false;
 	}
 	
+	/**
+	 * Checks if the player is on the key
+	 * @param newX
+	 * 		X coordinate
+	 * @param newY
+	 * 		Y coordinate
+	 */
 	public boolean isOnKey(int newX, int newY) {
 		if(energyBall.getX() == newX && energyBall.getY() == newY)
 			return true;
@@ -155,6 +219,13 @@ public class MyCharacter extends Mobile{
 		return false;
 	}
 	
+	/**
+	 * Checks if the player is on the door
+	 * @param newX
+	 * 		X coordinate
+	 * @param newY
+	 * 		Y coordinate
+	 */
 	public boolean isOnDoor(int newX, int newY) {
 		if(door.getX() == newX && door.getY() == newY)
 			return true;
@@ -162,28 +233,60 @@ public class MyCharacter extends Mobile{
 		return false;
 	}
 	
+	/**
+	 * Checks if the player is on the spell
+	 * @param newX
+	 * 		X coordinate
+	 * @param newY
+	 * 		Y coordinate
+	 */
 	public boolean isOnSpell(int newX, int newY) {
 		if(spell.getX() == newX && spell.getY() == newY)
 			return true;
 		return false;
 	}
 	
+	/**
+	 * Adds the purse to the player
+	 * @param purse
+	 * 		Purse to add
+	 */
 	public void addPurse(IMobile purse) {
 		purses.add(purse);
 	}
 	
+	/**
+	 * Adds the key to the player
+	 * @param energyBall
+	 * 		Key to add
+	 */
 	public void addEnergyBall(IMobile energyBall) {
 		this.energyBall = energyBall;
 	}
 	
+	/**
+	 * Adds a monster to the player
+	 * @param monster
+	 * 		Monster to add
+	 */
 	public void addMonster(IMobile monster) {
 		this.monsters.add(monster);
 	}
 	
+	/**
+	 * Adds the door to the player
+	 * @param door
+	 * 		Door to add
+	 */
 	public void addDoor(IMobile door) {
 		this.door = door;
 	}
 	
+	/**
+	 * Adds the spell to the player
+	 * @param spell
+	 * 		Spell to add
+	 */
 	public void addSpell(IMobile spell) {
 		this.spell = spell;
 		for (IMobile monster : monsters) {
@@ -197,6 +300,9 @@ public class MyCharacter extends Mobile{
 		return 0;
 	}
 	
+	/**
+	 * Gets if the player has won
+	 */
 	public boolean hasWon() {
 		return this.won;
 	}
@@ -204,13 +310,16 @@ public class MyCharacter extends Mobile{
 	@Override
 	public boolean isHit(int newX, int newY) {
 		for(IMobile monster : this.monsters) {
-			if(monster.getX() == newX && monster.getY() == newY) {
+			if(monster.getX() == newX && monster.getY() == newY && monster.isAlive()) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	/**
+	 * Makes the spell spawn at a specific location
+	 */
 	public void shoot() {
 		if(!spell.isAlive()) {
 			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);

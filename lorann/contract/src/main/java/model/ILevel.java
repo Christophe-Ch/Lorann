@@ -9,7 +9,6 @@ public interface ILevel {
 	int getHeight();
 	IElement getOnTheLevelXY(int x, int y);
 	void setOnTheLevelXY(int x, int y, IElement element);
-	boolean setSpellOnTheLevelXY(int x, int y, IElement spell);
 	Observable getObservable();
 	void setElementHasChanged();
 	Point getCharacterPosition();

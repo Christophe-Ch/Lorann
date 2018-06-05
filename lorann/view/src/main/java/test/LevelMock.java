@@ -39,7 +39,7 @@ public class LevelMock implements ILevel{
 		// TODO Auto-generated method stub
 		
 	}
-
+  
 	@Override
 	public boolean setSpellOnTheLevelXY(int x, int y, IElement spell) {
 		// TODO Auto-generated method stub
