@@ -1,13 +1,9 @@
 package view;
 
-import java.awt.Image;
 import java.awt.Point;
 
-import javax.swing.text.DefaultStyledDocument.ElementBuffer;
-
 import model.IMobile;
-import model.Permeability;
-import model.Sprite;
+
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -15,25 +11,7 @@ import model.Sprite;
  * @author Corentin Hangard
  * @version 1.0
  */
-public class MobileMock implements IMobile {
-
-	@Override
-	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public abstract class MobileMock extends ElementMock implements IMobile {
 
 	@Override
 	public boolean moveUp() {
@@ -96,15 +74,15 @@ public class MobileMock implements IMobile {
 	}
 
 	@Override
-	public int collect() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void shoot() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
