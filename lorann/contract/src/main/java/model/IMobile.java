@@ -10,6 +10,10 @@ public interface IMobile extends IElement, IPawn{
 	boolean moveLeft();
 	boolean moveDown();
 	boolean moveRight();
+	boolean moveUpperRight();
+	boolean moveUpperLeft();
+	boolean moveBottomRight();
+	boolean moveBottomLeft();
 	void doNothing();
 	int getX();
 	int getY();

@@ -60,17 +60,29 @@ public class ControllerFacade implements IController, IOrderPerformer {
         	
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
-        		case KeyEvent.VK_RIGHT:
+        		case KeyEvent.VK_NUMPAD6:
         			this.getModel().getMyCharacter().moveRight();
         			break;
-        		case KeyEvent.VK_LEFT:
+        		case KeyEvent.VK_NUMPAD4:
         			this.getModel().getMyCharacter().moveLeft();
         			break;
-        		case KeyEvent.VK_UP:
+        		case KeyEvent.VK_NUMPAD8:
         			this.getModel().getMyCharacter().moveUp();
         			break;
-        		case KeyEvent.VK_DOWN:
+        		case KeyEvent.VK_NUMPAD5:
         			this.getModel().getMyCharacter().moveDown();
+        			break;
+        		case KeyEvent.VK_NUMPAD9:
+        			this.getModel().getMyCharacter().moveUpperRight();
+        			break;
+        		case KeyEvent.VK_NUMPAD7:
+        			this.getModel().getMyCharacter().moveUpperLeft();
+        			break;
+        		case KeyEvent.VK_NUMPAD3:
+        			this.getModel().getMyCharacter().moveBottomRight();
+        			break;
+        		case KeyEvent.VK_NUMPAD1:
+        			this.getModel().getMyCharacter().moveBottomLeft();
         			break;
         		case KeyEvent.VK_SPACE:
         			this.getModel().getMyCharacter().shoot();
@@ -85,13 +97,12 @@ public class ControllerFacade implements IController, IOrderPerformer {
         		this.getModel().getMyCharacter().doNothing();
         	}
         }
-        if(this.getModel().hasCharacterWon()) {
+        if(this.getModel().hasCharacterWon())
         	this.getView().displayMessage("You escaped !");
-        	System.exit(1);
-        }
         else
         	this.getView().displayMessage("You're dead..");
-        	System.exit(1);
+        	
+        System.exit(1);
     }
 
     /**

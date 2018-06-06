@@ -174,7 +174,7 @@ public class Level extends Observable implements ILevel {
 						this.monsters.add(new SecondMonster(this, x, y));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;
-					case 'O':
+					case 'O' :
 						this.monsters.add(new ThirdMonster(this, x, y));
 						this.setOnTheLevelXY(x, y, MotionlessElementFactory.createFloor());
 						break;

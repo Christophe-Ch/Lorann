@@ -125,6 +125,70 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	/**
+	 * Moves to the upper right on the level
+	 * 
+	 * @return Boolean value that indicates whether the element has moved or not
+	 */
+	@Override
+	public boolean moveUpperRight() {
+		if(this.setPosition(this.getX() + 1, this.getY() - 1))
+		{
+			this.lastX = 1;
+			this.lastY = -1;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Moves to the upper left on the level
+	 * 
+	 * @return Boolean value that indicates whether the element has moved or not
+	 */
+	@Override
+	public boolean moveUpperLeft() {
+		if(this.setPosition(this.getX() - 1, this.getY() - 1))
+		{
+			this.lastX = -1;
+			this.lastY = -1;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Moves to the bottom right on the level
+	 * 
+	 * @return Boolean value that indicates whether the element has moved or not
+	 */
+	@Override
+	public boolean moveBottomRight() {
+		if(this.setPosition(this.getX() + 1, this.getY() + 1))
+		{
+			this.lastX = 1;
+			this.lastY = 1;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Moves to the bottom left on the level
+	 * 
+	 * @return Boolean value that indicates whether the element has moved or not
+	 */
+	@Override
+	public boolean moveBottomLeft() {
+		if(this.setPosition(this.getX() - 1, this.getY() + 1))
+		{
+			this.lastX = -1;
+			this.lastY = 1;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
 	 * Notifies the level the element has moved
 	 */
 	public void setHasMoved() {
