@@ -255,4 +255,28 @@ public class MobileMock implements IMobile {
 		this.alive = false;
 	}
 
+	@Override
+	public boolean moveUpperRight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveUpperLeft() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveBottomRight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean moveBottomLeft() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

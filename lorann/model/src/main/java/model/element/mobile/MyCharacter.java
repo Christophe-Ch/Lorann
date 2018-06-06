@@ -160,7 +160,7 @@ public class MyCharacter extends Mobile{
 	public boolean moveLeft() {
 		super.moveLeft();
 		specialCase(this.getX(), this.getY());
-		this.setSprite(lorann_bl);
+		this.setSprite(lorann_l);
 		this.setHasMoved();
 		return true;
 	}
@@ -169,7 +169,7 @@ public class MyCharacter extends Mobile{
 	public boolean moveRight() {
 		super.moveRight();
 		specialCase(this.getX(), this.getY());
-		this.setSprite(lorann_ur);
+		this.setSprite(lorann_r);
 		this.setHasMoved();
 		return true;
 	}
@@ -178,7 +178,7 @@ public class MyCharacter extends Mobile{
 	public boolean moveUp() {
 		super.moveUp();
 		specialCase(this.getX(), this.getY());
-		this.setSprite(lorann_ul);
+		this.setSprite(lorann_u);
 		this.setHasMoved();
 		return true;
 	}
@@ -187,7 +187,43 @@ public class MyCharacter extends Mobile{
 	public boolean moveDown() {
 		super.moveDown();
 		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_b);
+		this.setHasMoved();
+		return true;
+	}
+	
+	@Override
+	public boolean moveUpperRight() {
+		super.moveUpperRight();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ur);
+		this.setHasMoved();
+		return true;
+	}
+	
+	@Override
+	public boolean moveUpperLeft() {
+		super.moveUpperLeft();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ul);
+		this.setHasMoved();
+		return true;
+	}
+	
+	@Override
+	public boolean moveBottomRight() {
+		super.moveBottomRight();
+		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_br);
+		this.setHasMoved();
+		return true;
+	}
+	
+	@Override
+	public boolean moveBottomLeft() {
+		super.moveBottomLeft();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_bl);
 		this.setHasMoved();
 		return true;
 	}
@@ -334,6 +370,43 @@ public class MyCharacter extends Mobile{
 		if(!spell.isAlive()) {
 			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
 			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
+		}
+		else {
+			int direction;
+			
+			if(this.getX() == this.spell.getX()) {
+				if(this.getY() < this.spell.getY()) { // Up
+					direction = 1;
+				}
+				else { // Down
+					direction = 2;
+				}
+			}
+			else if(this.getY() == this.spell.getY()) {
+				if(this.getX() < this.spell.getX()) { // Left
+					direction = 4;
+				}
+				else { // Right
+					direction = 3;
+				}
+			}
+			else if(this.getX() < this.spell.getX()) {
+				if(this.getY() < this.spell.getY()) { // Upper left
+					direction = 5;
+				}
+				else { // Bottom left
+					direction = 7;
+				}
+			}
+			else {
+				if(this.getY() < this.spell.getY()) { // Upper right
+					direction = 6;
+				}
+				else { // Bottom right
+					direction = 8;
+				}
+			}
+			((Spell)this.spell).control(direction);
 		}
 		this.setHasMoved();
 	}

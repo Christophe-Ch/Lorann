@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 import model.element.mobile.MyCharacter;
@@ -46,9 +47,11 @@ public final class ModelFacade implements IModel {
      * 		if the image of a sprite doesn't exist
      */
     public ModelFacade(int level) throws SQLException, IOException {
-        super();
         this.setLevel(new Level(level));
-        this.setCharacter(new MyCharacter((int)this.level.getCharacterPosition().getX(), (int)this.level.getCharacterPosition().getY(), this.level));
+        this.setCharacter(new MyCharacter(
+        		(int)this.level.getCharacterPosition().getX(), 
+        		(int)this.level.getCharacterPosition().getY(), 
+        		this.level));
 
         purses = new IMobile[this.getLevel().getPurses().length];
         monsters = new IMobile[this.getLevel().getMonsters().length];
@@ -64,13 +67,13 @@ public final class ModelFacade implements IModel {
         }
         
         energyBall = this.getLevel().getEnergyBall();
-        ((MyCharacter)this.getMyCharacter()).addEnergyBall(energyBall);
+        this.getMyCharacter().addEnergyBall(energyBall);
         
         door = this.getLevel().getDoor();
-        ((MyCharacter)this.getMyCharacter()).addDoor(door);
+        this.getMyCharacter().addDoor(door);
         
         spell = this.getLevel().getSpell();
-        ((MyCharacter)this.getMyCharacter()).addSpell(spell);
+        this.getMyCharacter().addSpell(spell);
     }
     
     /**

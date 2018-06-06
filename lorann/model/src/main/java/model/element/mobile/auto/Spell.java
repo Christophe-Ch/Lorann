@@ -122,6 +122,30 @@ public class Spell extends Mobile{
 						direction = 3;
 					}
 					break;
+				case 5: // Upper left
+					if(!moveUpperLeft()) {
+						moveBottomRight();
+						direction = 8;
+					}
+					break;
+				case 6: // Upper right
+					if(!moveUpperRight()) {
+						moveBottomLeft();
+						direction = 7;
+					}
+					break;
+				case 7: // Bottom left
+					if(!moveBottomLeft()) {
+						moveUpperRight();
+						direction = 6;
+					}
+					break;
+				case 8: // Bottom right
+					if(!moveBottomRight()) {
+						moveUpperLeft();
+						direction = 5;
+					}
+					break;
 			}
 			
 			int index = 0;
@@ -192,6 +216,10 @@ public class Spell extends Mobile{
 	 */
 	public void addMonster(IMobile monster) {
 		this.monsters.add(monster);
+	}
+	
+	public void control(int direction) {
+		this.direction = direction;
 	}
 
 }
